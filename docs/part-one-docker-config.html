@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+    <title>Microservices with Docker, Flask, and React - Docker Config</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+  <link
+    rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+  >
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  >
+  <link
+    rel="stylesheet"
+    href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  >
+  <link
+    href="//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="//fonts.googleapis.com/css?family=Lato:900,300"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="https://fonts.googleapis.com/css?family=Montserrat"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link href="/assets/css/styles.css?1515124024017421000" rel="stylesheet">
+  <script
+    src="//code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    type="text/javascript"
+    src="/assets/js/main.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://gumroad.com/js/gumroad.js"
+  ></script>
+</head>
+
+
+  <body>
+
+    <nav class="indigo darken-4">
+  <div class="nav-wrapper">
+    <a href="/" class="nav-logo-container left">
+      <img
+        class="nav-logo" src="/assets/img/test_driven_io_full_logo_white_text.svg" alt="testdriven.io"
+      />
+    </a>
+    <a href="/" class="brand-logo main-brand-logo center show-on-large hide-on-med-and-down">
+      Test Driven Development Courses
+    </a>
+    <!-- <a href="/" class="brand-logo main-brand-logo hide-on-large-only">
+      TDD Courses
+    </a> -->
+    <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/">Course</a></li>
+      <li><a href="/course-contents">Contents</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="/">Home</a></li>
+      <li><a href="/">Course</a></li>
+      <li><a href="/course-contents">Contents</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <br>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col m3 hide-on-small-and-down">
+  <br>
+  <div id="toc-block" class="collection hide-on-small-and-down">
+    <ul class="collapsible collapsible-accordion">
+      
+        
+          <li>
+            <h5 data-part="1" class="collapsible-header  waves-effect waves-teal">
+              Part 1
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-intro">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-microservices">
+                Microservices
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-app-overview">
+                App Overview
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-getting-started">
+                Getting Started
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-docker-config">
+                Docker Config
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-postgres-setup">
+                Postgres Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-test-setup">
+                Test Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-flask-blueprints">
+                Flask Blueprints
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>9.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-restful-routes">
+                RESTful Routes
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>10.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-deployment">
+                Deployment
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>11.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-jinja-templates">
+                Jinja Templates
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>12.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-workflow">
+                Workflow
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+          <li>
+            <h5 data-part="2" class="collapsible-header  waves-effect waves-teal">
+              Part 2
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-intro">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-code-coverage-and-quality">
+                Code Coverage and Quality
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-continuous-integration">
+                Continuous Integration
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-setup">
+                React Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-testing-react">
+                Testing React
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-forms">
+                React Forms
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-and-docker">
+                React and Docker
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-next-steps">
+                Next Steps
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+          <li>
+            <h5 data-part="3" class="collapsible-header  waves-effect waves-teal">
+              Part 3
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-into">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-flask-migrate">
+                Flask Migrate
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-flask-bcrypt">
+                Flask Bcrypt
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-jwt-setup">
+                JWT Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-auth-routes">
+                Auth Routes
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-router">
+                React Router
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-bootstrap">
+                React Bootstrap
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-auth-one">
+                React Authentication - part one
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>9.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-mocking-user-interaction">
+                Mocking User Interaction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>10.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-auth-two">
+                React Authentication - part two
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>11.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-authorization">
+                Authorization
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>12.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-update-component">
+                Update Component
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>13.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-update-docker">
+                Update Docker
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+    </div>
+  </li>
+    </ul>
+  </div>
+</div>
+
+
+        <div class="col m9 hide-on-small-and-down">
+
+          <h2>Docker Config</h2>
+
+          
+            <h5>Part 1, Lesson 5</h5>
+
+            <div class="page-nav">
+              
+                <a class="prev btn left-align" href="https://testdriven.io/part-one-getting-started">&laquo; Getting Started</a>
+              
+              
+                <a class="next btn right-align" href="https://testdriven.io/part-one-postgres-setup">Postgres Setup &raquo;</a>
+              
+            </div>
+
+            
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - Docker Config&amp;url=https%3A%2F%2Ftestdriven.io/part-one-docker-config&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+            <br><br>
+
+          
+
+          <p>Let&#39;s containerize the Flask app...</p>
+
+<hr>
+
+<p>Start by ensuring that you have Docker, Docker Compose, and Docker Machine installed:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker -v
+Docker version <span class="m">17</span>.09.0-ce, build afdb6d4
+$ docker-compose -v
+docker-compose version <span class="m">1</span>.16.1, build 6d1ac21
+$ docker-machine -v
+docker-machine version <span class="m">0</span>.12.2, build <span class="m">9371605</span>
+</code></pre></div>
+<p>Next, we need to <a href="https://docs.docker.com/machine/reference/create/">create</a> a new Docker host with <a href="https://docs.docker.com/machine/">Docker Machine</a> and point the Docker client at it:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-machine create -d virtualbox testdriven-dev
+$ <span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>docker-machine env testdriven-dev<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+<blockquote>
+<p>Learn more about the above command <a href="https://stackoverflow.com/questions/40038572/eval-docker-machine-env-default/40040077#40040077">here</a>.</p>
+</blockquote>
+
+<p>Add a <em>Dockerfile-dev</em> to the &quot;users-service&quot; directory, making sure to review the code comments:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>FROM python:3.6.3
+
+# set working directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+# add requirements
+ADD ./requirements.txt /usr/src/app/requirements.txt
+
+# install requirements
+RUN pip install -r requirements.txt
+
+# add app
+ADD . /usr/src/app
+
+# run server
+CMD python manage.py runserver -h 0.0.0.0
+</code></pre></div>
+<p>Then add a <em>docker-compose-dev.yml</em> file to the root:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>version: &#39;3.3&#39;
+
+services:
+
+  users-service:
+    container_name: users-service
+    build:
+      context: ./users-service
+      dockerfile: Dockerfile-dev
+    volumes:
+      - &#39;./users-service:/usr/src/app&#39;
+    ports:
+      - 5001:5000
+</code></pre></div>
+<p>This config will create a container called <code>users-service</code>, from the Dockerfile.</p>
+
+<blockquote>
+<p>Directories are relative to the <em>docker-compose-dev.yml</em> file.</p>
+</blockquote>
+
+<p>The <code>volume</code> is used to mount the code into the container. This is a must for a development environment in order to update the container whenever a change to the source code is made. Without this, you would have to re-build the image after each code change.</p>
+
+<p>Take note of the <a href="https://docs.docker.com/compose/compose-file/">Docker compose file version</a> used - <code>3.3</code>. Keep in mind that this does <em>not</em> relate directly to the version of Docker Compose installed - it simply specifies the file format that you want to use.</p>
+
+<p>Build the image:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml build
+</code></pre></div>
+<p>This will take a few minutes the first time. Subsequent builds will be much faster since Docker caches the results of the first build. Once the build is done, fire up the container:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml up -d
+</code></pre></div>
+<blockquote>
+<p>The <code>-d</code> flag is used to run the containers in the background.</p>
+</blockquote>
+
+<p>Grab the IP associated with the machine:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-machine ip testdriven-dev
+</code></pre></div>
+<p>Navigate to <a href="http://DOCKER_MACHINE_IP:5001/users/ping">http://DOCKER_MACHINE_IP:5001/users/ping</a>. Make sure you see the same JSON response as before. Next, add an environment variable to the <em>docker-compose-dev.yml</em> file to load the app config for the dev environment:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>version: &#39;3.3&#39;
+
+services:
+
+  users-service:
+    container_name: users-service
+    build:
+      context: ./users-service
+      dockerfile: Dockerfile-dev
+    volumes:
+      - &#39;./users-service:/usr/src/app&#39;
+    ports:
+      - 5001:5000
+    environment:
+      - APP_SETTINGS=project.config.DevelopmentConfig
+</code></pre></div>
+<p>Then update <em>project/__init__.py</em>, to pull in the environment variables:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="c1"># users-service/project/__init__.py</span>
+
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+
+
+<span class="c1"># instantiate the app</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># set config</span>
+<span class="n">app_settings</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;APP_SETTINGS&#39;</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">app_settings</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/users/ping&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">ping_pong</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span>
+        <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;pong!&#39;</span>
+    <span class="p">})</span>
+</code></pre></div>
+<p>Update the container:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml up -d
+</code></pre></div>
+<p>Want to test, to ensure the proper config was loaded? Add a <code>print</code> statement to the <em>__init__.py</em>, right before the route handler, to view the app config to ensure that it is working:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">print</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+</code></pre></div>
+<p>Then just view the logs:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml logs
+</code></pre></div>
+<p>You should see something like:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>&lt;Config {
+  &#39;DEBUG&#39;: True, &#39;TESTING&#39;: False, &#39;PROPAGATE_EXCEPTIONS&#39;: None,
+  &#39;PRESERVE_CONTEXT_ON_EXCEPTION&#39;: None, &#39;SECRET_KEY&#39;: None,
+  &#39;PERMANENT_SESSION_LIFETIME&#39;: datetime.timedelta(31), &#39;USE_X_SENDFILE&#39;:
+  False, &#39;LOGGER_NAME&#39;: &#39;project&#39;, &#39;LOGGER_HANDLER_POLICY&#39;: &#39;always&#39;,
+  &#39;SERVER_NAME&#39;: None, &#39;APPLICATION_ROOT&#39;: None, &#39;SESSION_COOKIE_NAME&#39;:
+  &#39;session&#39;, &#39;SESSION_COOKIE_DOMAIN&#39;: None, &#39;SESSION_COOKIE_PATH&#39;: None,
+  &#39;SESSION_COOKIE_HTTPONLY&#39;: True, &#39;SESSION_COOKIE_SECURE&#39;: False,
+  &#39;SESSION_REFRESH_EACH_REQUEST&#39;: True, &#39;MAX_CONTENT_LENGTH&#39;: None,
+  &#39;SEND_FILE_MAX_AGE_DEFAULT&#39;: datetime.timedelta(0, 43200),
+  &#39;TRAP_BAD_REQUEST_ERRORS&#39;: False, &#39;TRAP_HTTP_EXCEPTIONS&#39;: False,
+  &#39;EXPLAIN_TEMPLATE_LOADING&#39;: False, &#39;PREFERRED_URL_SCHEME&#39;: &#39;http&#39;,
+  &#39;JSON_AS_ASCII&#39;: True, &#39;JSON_SORT_KEYS&#39;: True,
+  &#39;JSONIFY_PRETTYPRINT_REGULAR&#39;: True, &#39;JSONIFY_MIMETYPE&#39;:
+  &#39;application/json&#39;, &#39;TEMPLATES_AUTO_RELOAD&#39;: None}
+&gt;
+</code></pre></div>
+<p>Make sure to remove the <code>print</code> statement before moving on.</p>
+
+
+          <div class="page-nav">
+            
+              <a class="prev btn left-align" href="https://testdriven.io/part-one-getting-started">&laquo; Getting Started</a>
+            
+            
+              <a class="next btn right-align" href="https://testdriven.io/part-one-postgres-setup">Postgres Setup &raquo;</a>
+            
+          </div>
+
+          
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - Docker Config&amp;url=https%3A%2F%2Ftestdriven.io/part-one-docker-config&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+        </div>
+
+        <div class="hide-on-med-and-up">
+
+          <h2>Docker Config</h2>
+
+          <p>Let&#39;s containerize the Flask app...</p>
+
+<hr>
+
+<p>Start by ensuring that you have Docker, Docker Compose, and Docker Machine installed:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker -v
+Docker version <span class="m">17</span>.09.0-ce, build afdb6d4
+$ docker-compose -v
+docker-compose version <span class="m">1</span>.16.1, build 6d1ac21
+$ docker-machine -v
+docker-machine version <span class="m">0</span>.12.2, build <span class="m">9371605</span>
+</code></pre></div>
+<p>Next, we need to <a href="https://docs.docker.com/machine/reference/create/">create</a> a new Docker host with <a href="https://docs.docker.com/machine/">Docker Machine</a> and point the Docker client at it:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-machine create -d virtualbox testdriven-dev
+$ <span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>docker-machine env testdriven-dev<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+<blockquote>
+<p>Learn more about the above command <a href="https://stackoverflow.com/questions/40038572/eval-docker-machine-env-default/40040077#40040077">here</a>.</p>
+</blockquote>
+
+<p>Add a <em>Dockerfile-dev</em> to the &quot;users-service&quot; directory, making sure to review the code comments:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>FROM python:3.6.3
+
+# set working directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+# add requirements
+ADD ./requirements.txt /usr/src/app/requirements.txt
+
+# install requirements
+RUN pip install -r requirements.txt
+
+# add app
+ADD . /usr/src/app
+
+# run server
+CMD python manage.py runserver -h 0.0.0.0
+</code></pre></div>
+<p>Then add a <em>docker-compose-dev.yml</em> file to the root:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>version: &#39;3.3&#39;
+
+services:
+
+  users-service:
+    container_name: users-service
+    build:
+      context: ./users-service
+      dockerfile: Dockerfile-dev
+    volumes:
+      - &#39;./users-service:/usr/src/app&#39;
+    ports:
+      - 5001:5000
+</code></pre></div>
+<p>This config will create a container called <code>users-service</code>, from the Dockerfile.</p>
+
+<blockquote>
+<p>Directories are relative to the <em>docker-compose-dev.yml</em> file.</p>
+</blockquote>
+
+<p>The <code>volume</code> is used to mount the code into the container. This is a must for a development environment in order to update the container whenever a change to the source code is made. Without this, you would have to re-build the image after each code change.</p>
+
+<p>Take note of the <a href="https://docs.docker.com/compose/compose-file/">Docker compose file version</a> used - <code>3.3</code>. Keep in mind that this does <em>not</em> relate directly to the version of Docker Compose installed - it simply specifies the file format that you want to use.</p>
+
+<p>Build the image:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml build
+</code></pre></div>
+<p>This will take a few minutes the first time. Subsequent builds will be much faster since Docker caches the results of the first build. Once the build is done, fire up the container:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml up -d
+</code></pre></div>
+<blockquote>
+<p>The <code>-d</code> flag is used to run the containers in the background.</p>
+</blockquote>
+
+<p>Grab the IP associated with the machine:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-machine ip testdriven-dev
+</code></pre></div>
+<p>Navigate to <a href="http://DOCKER_MACHINE_IP:5001/users/ping">http://DOCKER_MACHINE_IP:5001/users/ping</a>. Make sure you see the same JSON response as before. Next, add an environment variable to the <em>docker-compose-dev.yml</em> file to load the app config for the dev environment:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>version: &#39;3.3&#39;
+
+services:
+
+  users-service:
+    container_name: users-service
+    build:
+      context: ./users-service
+      dockerfile: Dockerfile-dev
+    volumes:
+      - &#39;./users-service:/usr/src/app&#39;
+    ports:
+      - 5001:5000
+    environment:
+      - APP_SETTINGS=project.config.DevelopmentConfig
+</code></pre></div>
+<p>Then update <em>project/__init__.py</em>, to pull in the environment variables:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="c1"># users-service/project/__init__.py</span>
+
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+
+
+<span class="c1"># instantiate the app</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># set config</span>
+<span class="n">app_settings</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;APP_SETTINGS&#39;</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">from_object</span><span class="p">(</span><span class="n">app_settings</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/users/ping&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">ping_pong</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span>
+        <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;pong!&#39;</span>
+    <span class="p">})</span>
+</code></pre></div>
+<p>Update the container:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml up -d
+</code></pre></div>
+<p>Want to test, to ensure the proper config was loaded? Add a <code>print</code> statement to the <em>__init__.py</em>, right before the route handler, to view the app config to ensure that it is working:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">print</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+</code></pre></div>
+<p>Then just view the logs:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml logs
+</code></pre></div>
+<p>You should see something like:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>&lt;Config {
+  &#39;DEBUG&#39;: True, &#39;TESTING&#39;: False, &#39;PROPAGATE_EXCEPTIONS&#39;: None,
+  &#39;PRESERVE_CONTEXT_ON_EXCEPTION&#39;: None, &#39;SECRET_KEY&#39;: None,
+  &#39;PERMANENT_SESSION_LIFETIME&#39;: datetime.timedelta(31), &#39;USE_X_SENDFILE&#39;:
+  False, &#39;LOGGER_NAME&#39;: &#39;project&#39;, &#39;LOGGER_HANDLER_POLICY&#39;: &#39;always&#39;,
+  &#39;SERVER_NAME&#39;: None, &#39;APPLICATION_ROOT&#39;: None, &#39;SESSION_COOKIE_NAME&#39;:
+  &#39;session&#39;, &#39;SESSION_COOKIE_DOMAIN&#39;: None, &#39;SESSION_COOKIE_PATH&#39;: None,
+  &#39;SESSION_COOKIE_HTTPONLY&#39;: True, &#39;SESSION_COOKIE_SECURE&#39;: False,
+  &#39;SESSION_REFRESH_EACH_REQUEST&#39;: True, &#39;MAX_CONTENT_LENGTH&#39;: None,
+  &#39;SEND_FILE_MAX_AGE_DEFAULT&#39;: datetime.timedelta(0, 43200),
+  &#39;TRAP_BAD_REQUEST_ERRORS&#39;: False, &#39;TRAP_HTTP_EXCEPTIONS&#39;: False,
+  &#39;EXPLAIN_TEMPLATE_LOADING&#39;: False, &#39;PREFERRED_URL_SCHEME&#39;: &#39;http&#39;,
+  &#39;JSON_AS_ASCII&#39;: True, &#39;JSON_SORT_KEYS&#39;: True,
+  &#39;JSONIFY_PRETTYPRINT_REGULAR&#39;: True, &#39;JSONIFY_MIMETYPE&#39;:
+  &#39;application/json&#39;, &#39;TEMPLATES_AUTO_RELOAD&#39;: None}
+&gt;
+</code></pre></div>
+<p>Make sure to remove the <code>print</code> statement before moving on.</p>
+
+
+          
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - Docker Config&amp;url=https%3A%2F%2Ftestdriven.io/part-one-docker-config&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+          <div class="page-nav">
+            
+              <a class="prev btn left-align" href="https://testdriven.io/part-one-getting-started">&laquo; Getting Started</a>
+            
+            
+              <a class="next btn right-align" href="https://testdriven.io/part-one-postgres-setup">Postgres Setup &raquo;</a>
+            
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+     <footer class="page-footer white">
+  <div class="container footer-container center-align">
+    <ul>
+      <li><small>Content by Michael Herman (michael@mherman.org)</small></li>
+      <li><small>&copy; Copyright 2017 <a href="http://testdriven.io">TestDriven.io</a></small></li>
+    </ul>
+  </div>
+</footer>
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100160465-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+    <title>Microservices with Docker, Flask, and React - React Authentication - part one</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+  <link
+    rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+  >
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  >
+  <link
+    rel="stylesheet"
+    href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  >
+  <link
+    href="//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="//fonts.googleapis.com/css?family=Lato:900,300"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="https://fonts.googleapis.com/css?family=Montserrat"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link href="/assets/css/styles.css?1515124024017421000" rel="stylesheet">
+  <script
+    src="//code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    type="text/javascript"
+    src="/assets/js/main.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://gumroad.com/js/gumroad.js"
+  ></script>
+</head>
+
+
+  <body>
+
+    <nav class="indigo darken-4">
+  <div class="nav-wrapper">
+    <a href="/" class="nav-logo-container left">
+      <img
+        class="nav-logo" src="/assets/img/test_driven_io_full_logo_white_text.svg" alt="testdriven.io"
+      />
+    </a>
+    <a href="/" class="brand-logo main-brand-logo center show-on-large hide-on-med-and-down">
+      Test Driven Development Courses
+    </a>
+    <!-- <a href="/" class="brand-logo main-brand-logo hide-on-large-only">
+      TDD Courses
+    </a> -->
+    <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/">Course</a></li>
+      <li><a href="/course-contents">Contents</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="/">Home</a></li>
+      <li><a href="/">Course</a></li>
+      <li><a href="/course-contents">Contents</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <br>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col m3 hide-on-small-and-down">
+  <br>
+  <div id="toc-block" class="collection hide-on-small-and-down">
+    <ul class="collapsible collapsible-accordion">
+      
+        
+          <li>
+            <h5 data-part="1" class="collapsible-header  waves-effect waves-teal">
+              Part 1
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-intro">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-microservices">
+                Microservices
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-app-overview">
+                App Overview
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-getting-started">
+                Getting Started
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-docker-config">
+                Docker Config
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-postgres-setup">
+                Postgres Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-test-setup">
+                Test Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-flask-blueprints">
+                Flask Blueprints
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>9.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-restful-routes">
+                RESTful Routes
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>10.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-deployment">
+                Deployment
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>11.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-jinja-templates">
+                Jinja Templates
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>12.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-workflow">
+                Workflow
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+          <li>
+            <h5 data-part="2" class="collapsible-header  waves-effect waves-teal">
+              Part 2
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-intro">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-code-coverage-and-quality">
+                Code Coverage and Quality
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-continuous-integration">
+                Continuous Integration
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-setup">
+                React Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-testing-react">
+                Testing React
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-forms">
+                React Forms
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-and-docker">
+                React and Docker
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-next-steps">
+                Next Steps
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+          <li>
+            <h5 data-part="3" class="collapsible-header  waves-effect waves-teal">
+              Part 3
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-into">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-flask-migrate">
+                Flask Migrate
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-flask-bcrypt">
+                Flask Bcrypt
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-jwt-setup">
+                JWT Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-auth-routes">
+                Auth Routes
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-router">
+                React Router
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-bootstrap">
+                React Bootstrap
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-auth-one">
+                React Authentication - part one
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>9.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-mocking-user-interaction">
+                Mocking User Interaction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>10.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-auth-two">
+                React Authentication - part two
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>11.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-authorization">
+                Authorization
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>12.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-update-component">
+                Update Component
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>13.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-update-docker">
+                Update Docker
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+    </div>
+  </li>
+    </ul>
+  </div>
+</div>
+
+
+        <div class="col m9 hide-on-small-and-down">
+
+          <h2>React Authentication - part one</h2>
+
+          
+            <h5>Part 3, Lesson 8</h5>
+
+            <div class="page-nav">
+              
+                <a class="prev btn left-align" href="https://testdriven.io/part-three-react-bootstrap">&laquo; React Bootstrap</a>
+              
+              
+                <a class="next btn right-align" href="https://testdriven.io/part-three-mocking-user-interaction">Mocking User Interaction &raquo;</a>
+              
+            </div>
+
+            
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - React Authentication - part one&amp;url=https%3A%2F%2Ftestdriven.io/part-three-react-auth-one&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+            <br><br>
+
+          
+
+          <p>Moving right along, let&#39;s add some methods to handle a user signing up, logging in, and logging out...</p>
+
+<hr>
+
+<p>With the <code>Form</code> component set up, we can now configure the methods to:</p>
+
+<ol>
+<li>Handle form submit event</li>
+<li>Obtain user input</li>
+<li>Send AJAX request</li>
+<li>Update the page</li>
+</ol>
+
+<blockquote>
+<p>These steps should look familiar since we already went through this process in the <a href="https://testdriven.io/part-two-react-forms">React Forms</a> lesson. Put your skills to the test and implement the code on your own before going through this lesson.</p>
+</blockquote>
+
+<h3 id="handle-form-submit-event">Handle form submit event</h3>
+
+<p>Turn to <em>Form.jsx</em>. Which method gets fired on the form submit?</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">props</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span><span class="p">(</span><span class="nx">event</span><span class="p">)}</span><span class="o">&gt;</span>
+</code></pre></div>
+<p>Add the method to the <code>App</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">handleUserFormSubmit</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;sanity check!&#39;</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Bind the method in the constructor:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="k">this</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</code></pre></div>
+<p>And then pass it down via the <code>props</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/register&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Form</span>
+    <span class="nx">formType</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Register&#39;</span><span class="p">}</span>
+    <span class="nx">formData</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">}</span>
+    <span class="nx">handleUserFormSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/login&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Form</span>
+    <span class="nx">formType</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Login&#39;</span><span class="p">}</span>
+    <span class="nx">formData</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">}</span>
+    <span class="nx">handleUserFormSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+</code></pre></div>
+<p>To test, remove the <code>required</code> attribute on each of the form <code>input</code>s in <em>services/client/src/components/Form.jsx</em>. Then, you should see <code>sanity check!</code> in the JavaScript console on form submit for both forms in the browser.</p>
+
+<p>Remove <code>console.log(&#39;sanity check!&#39;)</code> and add the <code>required</code> attributes back when done.</p>
+
+<h3 id="obtain-user-input">Obtain user input</h3>
+
+<p>Next, to get the user inputs, add the following method to the <code>App</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">handleFormChange</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">;</span>
+  <span class="nx">obj</span><span class="p">[</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Again, bind it in the constructor, and then pass it down on the <code>props</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">handleFormChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleFormChange</span><span class="p">}</span>
+</code></pre></div>
+<p>Add a <code>console.log()</code> to the method - <code>console.log(this.state.formData);</code> - to ensure it works when you test it in the browser. Remove it once done.</p>
+
+<p>What&#39;s next? AJAX!</p>
+
+<h3 id="send-ajax-request">Send AJAX request</h3>
+
+<p>Update the <code>handleUserFormSubmit</code> method to send the data to the user service on a successful form submit:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">handleUserFormSubmit</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="kr">const</span> <span class="nx">formType</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+    <span class="nx">password</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span>
+  <span class="p">};</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">formType</span> <span class="o">===</span> <span class="s1">&#39;register&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">data</span><span class="p">.</span><span class="nx">username</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_USERS_SERVICE_URL</span><span class="si">}</span><span class="sb">/auth/</span><span class="si">${</span><span class="nx">formType</span><span class="si">}</span><span class="sb">`</span>
+  <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span> <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Add a new <code>location</code> block to the Nginx config to handle requests to <code>/auth</code>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>location /auth {
+  proxy_pass        http://users-service:5000;
+  proxy_redirect    default;
+  proxy_set_header  Host $host;
+  proxy_set_header  X-Real-IP $remote_addr;
+  proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header  X-Forwarded-Host $server_name;
+}
+</code></pre></div>
+<p>Set the <code>REACT_APP_USERS_SERVICE_URL</code> environment variable:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ <span class="nb">export</span> <span class="nv">REACT_APP_USERS_SERVICE_URL</span><span class="o">=</span>http://DOCKER_MACHINE_DEV_IP
+</code></pre></div>
+<p>Update the containers:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml up -d --build
+</code></pre></div>
+<p>Test the user registration out. If you have everything set up correctly, you should see an object in the JavaScript console with an auth token:</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span></span><span class="p">{</span>
+  <span class="nt">&quot;auth_token&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTc3NTM2ODMsImlhdCI6MTQ5Nzc1MzY3OCwic3ViIjo0fQ.vcRFb5v3znHkz8An12QUxrgXsLqoKv93kIsMf-pdfVw&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Successfully registered.&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Test logging in as well. Again, you should see the very same object in the console.</p>
+
+<h3 id="update-the-page">Update the page</h3>
+
+<p>After a user register or logs in, we need to:</p>
+
+<ol>
+<li>Clear the <code>formData</code> object</li>
+<li>Save the auth token in the browser&#39;s <a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage">LocalStorage</a>, a client-side data store</li>
+<li>Update the state to indicate that the user is authenticated</li>
+<li>Redirect the user to <code>/</code></li>
+</ol>
+
+<p>First, to clear the form, update the <code>.then</code> within <code>handleUserFormSubmit()</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+    <span class="nx">formData</span><span class="o">:</span> <span class="p">{</span><span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="p">},</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+  <span class="p">});</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>Try this out. After you register or log in, the field inputs should be cleared since we set the properties in the <code>formData</code> object to empty strings.</p>
+
+<blockquote>
+<p>What happens if you enter data for the registration form but <em>don&#39;t</em> submit it and then navigate to the login form? The fields should remain. Is this okay? Should we clear the state on page load? Your call. You could simply update the state within the <code>componentWillMount</code> lifecycle method.</p>
+</blockquote>
+
+<p>Next, let&#39;s save the auth token in LocalStorage so that we can use it for subsequent API calls that require a user to be authenticated. To do this, add the following code to the <code>.then</code>, just below the <code>setState</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;authToken&#39;</span><span class="p">,</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">auth_token</span><span class="p">);</span>
+</code></pre></div>
+<p>Try logging in again. After a successful login, open the &quot;Application&quot; tab in <a href="https://developer.chrome.com/devtools">Chrome DevTools</a>. Click the arrow before <a href="https://developers.google.com/web/tools/chrome-devtools/manage-data/local-storage">LocalStorage</a> and select <code>http://localhost:3000</code>. You should see a key of <code>authToken</code> with a value of the actual token in the pane.</p>
+
+<div style="text-align:left;">
+  <img src="/assets/img/course/03_react_auth_login.png" style="max-width: 100%; border:0; box-shadow: none;" alt="react auth">
+</div>
+
+<p>Instead of always checking LocalStorage for the auth token, let&#39;s add a boolean to the state so we can quickly tell if there is a user authenticated.</p>
+
+<p>Add an <code>isAuthenticated</code> property to the state:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">users</span><span class="o">:</span> <span class="p">[],</span>
+  <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;TestDriven.io&#39;</span><span class="p">,</span>
+  <span class="nx">formData</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+  <span class="p">},</span>
+  <span class="nx">isAuthenticated</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Now, we can update the state in the <code>.then</code> within <code>handleUserFormSubmit()</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+  <span class="nx">formData</span><span class="o">:</span> <span class="p">{</span><span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="p">},</span>
+  <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="nx">isAuthenticated</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Finally, to redirect the user after a successful log in or registration, pass <code>isAuthenticated</code> through to the <code>Form</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/register&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Form</span>
+    <span class="nx">formType</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Register&#39;</span><span class="p">}</span>
+    <span class="nx">formData</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">}</span>
+    <span class="nx">handleUserFormSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span><span class="p">}</span>
+    <span class="nx">handleFormChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleFormChange</span><span class="p">}</span>
+    <span class="nx">isAuthenticated</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/login&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Form</span>
+    <span class="nx">formType</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Login&#39;</span><span class="p">}</span>
+    <span class="nx">formData</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">}</span>
+    <span class="nx">handleUserFormSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span><span class="p">}</span>
+    <span class="nx">handleFormChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleFormChange</span><span class="p">}</span>
+    <span class="nx">isAuthenticated</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+</code></pre></div>
+<p>Then, within <em>Form.jsx</em> add the following conditional right before the <code>return</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Redirect</span> <span class="nx">to</span><span class="o">=</span><span class="s1">&#39;/&#39;</span> <span class="o">/&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Add the import:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Redirect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>To test, log in and then make sure that you are redirected to <code>/</code>. Also, once logged in, you should be redirected if you try to go to the <code>/register</code> or <code>/login</code> links. Before moving on, try registering a new user. Did you notice that even though the redirect works, the users list is not updating?</p>
+
+<p>To update that, fire <code>this.getUsers()</code> in the <code>.then</code> within <code>handleUserFormSubmit()</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+    <span class="nx">formData</span><span class="o">:</span> <span class="p">{</span><span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">},</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nx">isAuthenticated</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">});</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;authToken&#39;</span><span class="p">,</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">auth_token</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">getUsers</span><span class="p">();</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>Test it out again.</p>
+
+<h3 id="logout">Logout</h3>
+
+<p>How about logging out? Add a new file called <em>Logout.test.js</em> to the  &quot;services/client/src/components/__tests__&quot; directory:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">shallow</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;enzyme&#39;</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="nx">Logout</span> <span class="nx">from</span> <span class="s1">&#39;../Logout&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">logoutUser</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">();</span>
+
+<span class="nx">test</span><span class="p">(</span><span class="s1">&#39;Logout renders properly&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Logout</span> <span class="nx">logoutUser</span><span class="o">=</span><span class="p">{</span><span class="nx">logoutUser</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">&#39;You are now logged out.&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Here, we&#39;re using <code>jest.fn()</code> to <a href="http://facebook.github.io/jest/docs/en/mock-function-api.html#mockfnmockimplementationfn">mock</a> the  <code>logoutUser</code> function. Ensure the tests fail, and then add a new component to the &quot;components&quot; folder called <em>Logout.jsx</em>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Link</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">Logout</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">logoutUser</span><span class="p">();</span>
+  <span class="p">};</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">You</span> <span class="nx">are</span> <span class="nx">now</span> <span class="nx">logged</span> <span class="nx">out</span><span class="p">.</span> <span class="nx">Click</span> <span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="o">&gt;</span><span class="nx">here</span><span class="o">&lt;</span><span class="err">/Link&gt; to log back in.&lt;/p&gt;</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">)</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Logout</span><span class="p">;</span>
+</code></pre></div>
+<p>Then, add a <code>logoutUser</code> method to the <code>App</code> component to remove the token from LocalStorage and update the state.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">logoutUser</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">isAuthenticated</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Bind the method:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="k">this</span><span class="p">.</span><span class="nx">logoutUser</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">logoutUser</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</code></pre></div>
+<p>Import the component into <em>App.jsx</em>, and then add the new route:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/logout&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Logout</span>
+    <span class="nx">logoutUser</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">logoutUser</span><span class="p">}</span>
+    <span class="nx">isAuthenticated</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+</code></pre></div>
+<p>To test:</p>
+
+<ol>
+<li>Log in</li>
+<li>Verify that the token was added to LocalStorage</li>
+<li>Log out</li>
+<li>Verify that the token was removed from LocalStorage</li>
+</ol>
+
+<p>Once you&#39;re done manually testing in the browser, ensure the unit tests pass. Then, add a snapshot test:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;Logout renders a snapshot properly&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">tree</span> <span class="o">=</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">Router</span><span class="o">&gt;&lt;</span><span class="nx">Logout</span> <span class="nx">logoutUser</span><span class="o">=</span><span class="p">{</span><span class="nx">logoutUser</span><span class="p">}</span><span class="o">/&gt;&lt;</span><span class="err">/Router&gt;</span>
+  <span class="p">).</span><span class="nx">toJSON</span><span class="p">();</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">tree</span><span class="p">).</span><span class="nx">toMatchSnapshot</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>We need to provide the <code>&lt;Router&gt;</code> context (via the <a href="https://reacttraining.com/react-router/core/api/MemoryRouter">MemoryRouter</a>) since it&#39;s required in the component (by the <code>Link</code>).</p>
+
+<p>Don&#39;t forget the imports:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="nx">renderer</span> <span class="nx">from</span> <span class="s1">&#39;react-test-renderer&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">MemoryRouter</span> <span class="nx">as</span> <span class="nx">Router</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>Commit your code.</p>
+
+
+          <div class="page-nav">
+            
+              <a class="prev btn left-align" href="https://testdriven.io/part-three-react-bootstrap">&laquo; React Bootstrap</a>
+            
+            
+              <a class="next btn right-align" href="https://testdriven.io/part-three-mocking-user-interaction">Mocking User Interaction &raquo;</a>
+            
+          </div>
+
+          
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - React Authentication - part one&amp;url=https%3A%2F%2Ftestdriven.io/part-three-react-auth-one&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+        </div>
+
+        <div class="hide-on-med-and-up">
+
+          <h2>React Authentication - part one</h2>
+
+          <p>Moving right along, let&#39;s add some methods to handle a user signing up, logging in, and logging out...</p>
+
+<hr>
+
+<p>With the <code>Form</code> component set up, we can now configure the methods to:</p>
+
+<ol>
+<li>Handle form submit event</li>
+<li>Obtain user input</li>
+<li>Send AJAX request</li>
+<li>Update the page</li>
+</ol>
+
+<blockquote>
+<p>These steps should look familiar since we already went through this process in the <a href="https://testdriven.io/part-two-react-forms">React Forms</a> lesson. Put your skills to the test and implement the code on your own before going through this lesson.</p>
+</blockquote>
+
+<h3 id="handle-form-submit-event">Handle form submit event</h3>
+
+<p>Turn to <em>Form.jsx</em>. Which method gets fired on the form submit?</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">form</span> <span class="nx">onSubmit</span><span class="o">=</span><span class="p">{(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">props</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span><span class="p">(</span><span class="nx">event</span><span class="p">)}</span><span class="o">&gt;</span>
+</code></pre></div>
+<p>Add the method to the <code>App</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">handleUserFormSubmit</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;sanity check!&#39;</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Bind the method in the constructor:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="k">this</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</code></pre></div>
+<p>And then pass it down via the <code>props</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/register&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Form</span>
+    <span class="nx">formType</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Register&#39;</span><span class="p">}</span>
+    <span class="nx">formData</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">}</span>
+    <span class="nx">handleUserFormSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/login&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Form</span>
+    <span class="nx">formType</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Login&#39;</span><span class="p">}</span>
+    <span class="nx">formData</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">}</span>
+    <span class="nx">handleUserFormSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+</code></pre></div>
+<p>To test, remove the <code>required</code> attribute on each of the form <code>input</code>s in <em>services/client/src/components/Form.jsx</em>. Then, you should see <code>sanity check!</code> in the JavaScript console on form submit for both forms in the browser.</p>
+
+<p>Remove <code>console.log(&#39;sanity check!&#39;)</code> and add the <code>required</code> attributes back when done.</p>
+
+<h3 id="obtain-user-input">Obtain user input</h3>
+
+<p>Next, to get the user inputs, add the following method to the <code>App</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">handleFormChange</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">;</span>
+  <span class="nx">obj</span><span class="p">[</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Again, bind it in the constructor, and then pass it down on the <code>props</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">handleFormChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleFormChange</span><span class="p">}</span>
+</code></pre></div>
+<p>Add a <code>console.log()</code> to the method - <code>console.log(this.state.formData);</code> - to ensure it works when you test it in the browser. Remove it once done.</p>
+
+<p>What&#39;s next? AJAX!</p>
+
+<h3 id="send-ajax-request">Send AJAX request</h3>
+
+<p>Update the <code>handleUserFormSubmit</code> method to send the data to the user service on a successful form submit:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">handleUserFormSubmit</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+  <span class="kr">const</span> <span class="nx">formType</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="kd">let</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+    <span class="nx">password</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">.</span><span class="nx">password</span><span class="p">,</span>
+  <span class="p">};</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">formType</span> <span class="o">===</span> <span class="s1">&#39;register&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">data</span><span class="p">.</span><span class="nx">username</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_USERS_SERVICE_URL</span><span class="si">}</span><span class="sb">/auth/</span><span class="si">${</span><span class="nx">formType</span><span class="si">}</span><span class="sb">`</span>
+  <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span> <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Add a new <code>location</code> block to the Nginx config to handle requests to <code>/auth</code>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>location /auth {
+  proxy_pass        http://users-service:5000;
+  proxy_redirect    default;
+  proxy_set_header  Host $host;
+  proxy_set_header  X-Real-IP $remote_addr;
+  proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header  X-Forwarded-Host $server_name;
+}
+</code></pre></div>
+<p>Set the <code>REACT_APP_USERS_SERVICE_URL</code> environment variable:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ <span class="nb">export</span> <span class="nv">REACT_APP_USERS_SERVICE_URL</span><span class="o">=</span>http://DOCKER_MACHINE_DEV_IP
+</code></pre></div>
+<p>Update the containers:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml up -d --build
+</code></pre></div>
+<p>Test the user registration out. If you have everything set up correctly, you should see an object in the JavaScript console with an auth token:</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span></span><span class="p">{</span>
+  <span class="nt">&quot;auth_token&quot;</span><span class="p">:</span> <span class="s2">&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0OTc3NTM2ODMsImlhdCI6MTQ5Nzc1MzY3OCwic3ViIjo0fQ.vcRFb5v3znHkz8An12QUxrgXsLqoKv93kIsMf-pdfVw&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Successfully registered.&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Test logging in as well. Again, you should see the very same object in the console.</p>
+
+<h3 id="update-the-page">Update the page</h3>
+
+<p>After a user register or logs in, we need to:</p>
+
+<ol>
+<li>Clear the <code>formData</code> object</li>
+<li>Save the auth token in the browser&#39;s <a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage">LocalStorage</a>, a client-side data store</li>
+<li>Update the state to indicate that the user is authenticated</li>
+<li>Redirect the user to <code>/</code></li>
+</ol>
+
+<p>First, to clear the form, update the <code>.then</code> within <code>handleUserFormSubmit()</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+    <span class="nx">formData</span><span class="o">:</span> <span class="p">{</span><span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="p">},</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+  <span class="p">});</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>Try this out. After you register or log in, the field inputs should be cleared since we set the properties in the <code>formData</code> object to empty strings.</p>
+
+<blockquote>
+<p>What happens if you enter data for the registration form but <em>don&#39;t</em> submit it and then navigate to the login form? The fields should remain. Is this okay? Should we clear the state on page load? Your call. You could simply update the state within the <code>componentWillMount</code> lifecycle method.</p>
+</blockquote>
+
+<p>Next, let&#39;s save the auth token in LocalStorage so that we can use it for subsequent API calls that require a user to be authenticated. To do this, add the following code to the <code>.then</code>, just below the <code>setState</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;authToken&#39;</span><span class="p">,</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">auth_token</span><span class="p">);</span>
+</code></pre></div>
+<p>Try logging in again. After a successful login, open the &quot;Application&quot; tab in <a href="https://developer.chrome.com/devtools">Chrome DevTools</a>. Click the arrow before <a href="https://developers.google.com/web/tools/chrome-devtools/manage-data/local-storage">LocalStorage</a> and select <code>http://localhost:3000</code>. You should see a key of <code>authToken</code> with a value of the actual token in the pane.</p>
+
+<div style="text-align:left;">
+  <img src="/assets/img/course/03_react_auth_login.png" style="max-width: 100%; border:0; box-shadow: none;" alt="react auth">
+</div>
+
+<p>Instead of always checking LocalStorage for the auth token, let&#39;s add a boolean to the state so we can quickly tell if there is a user authenticated.</p>
+
+<p>Add an <code>isAuthenticated</code> property to the state:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">users</span><span class="o">:</span> <span class="p">[],</span>
+  <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;TestDriven.io&#39;</span><span class="p">,</span>
+  <span class="nx">formData</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+  <span class="p">},</span>
+  <span class="nx">isAuthenticated</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Now, we can update the state in the <code>.then</code> within <code>handleUserFormSubmit()</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+  <span class="nx">formData</span><span class="o">:</span> <span class="p">{</span><span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="p">},</span>
+  <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="nx">isAuthenticated</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Finally, to redirect the user after a successful log in or registration, pass <code>isAuthenticated</code> through to the <code>Form</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/register&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Form</span>
+    <span class="nx">formType</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Register&#39;</span><span class="p">}</span>
+    <span class="nx">formData</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">}</span>
+    <span class="nx">handleUserFormSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span><span class="p">}</span>
+    <span class="nx">handleFormChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleFormChange</span><span class="p">}</span>
+    <span class="nx">isAuthenticated</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/login&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Form</span>
+    <span class="nx">formType</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Login&#39;</span><span class="p">}</span>
+    <span class="nx">formData</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">formData</span><span class="p">}</span>
+    <span class="nx">handleUserFormSubmit</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleUserFormSubmit</span><span class="p">}</span>
+    <span class="nx">handleFormChange</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleFormChange</span><span class="p">}</span>
+    <span class="nx">isAuthenticated</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+</code></pre></div>
+<p>Then, within <em>Form.jsx</em> add the following conditional right before the <code>return</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">Redirect</span> <span class="nx">to</span><span class="o">=</span><span class="s1">&#39;/&#39;</span> <span class="o">/&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Add the import:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Redirect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>To test, log in and then make sure that you are redirected to <code>/</code>. Also, once logged in, you should be redirected if you try to go to the <code>/register</code> or <code>/login</code> links. Before moving on, try registering a new user. Did you notice that even though the redirect works, the users list is not updating?</p>
+
+<p>To update that, fire <code>this.getUsers()</code> in the <code>.then</code> within <code>handleUserFormSubmit()</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+    <span class="nx">formData</span><span class="o">:</span> <span class="p">{</span><span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">},</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="nx">isAuthenticated</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">});</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;authToken&#39;</span><span class="p">,</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">auth_token</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">getUsers</span><span class="p">();</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>Test it out again.</p>
+
+<h3 id="logout">Logout</h3>
+
+<p>How about logging out? Add a new file called <em>Logout.test.js</em> to the  &quot;services/client/src/components/__tests__&quot; directory:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">shallow</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;enzyme&#39;</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="nx">Logout</span> <span class="nx">from</span> <span class="s1">&#39;../Logout&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">logoutUser</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">();</span>
+
+<span class="nx">test</span><span class="p">(</span><span class="s1">&#39;Logout renders properly&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">Logout</span> <span class="nx">logoutUser</span><span class="o">=</span><span class="p">{</span><span class="nx">logoutUser</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">&#39;You are now logged out.&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Here, we&#39;re using <code>jest.fn()</code> to <a href="http://facebook.github.io/jest/docs/en/mock-function-api.html#mockfnmockimplementationfn">mock</a> the  <code>logoutUser</code> function. Ensure the tests fail, and then add a new component to the &quot;components&quot; folder called <em>Logout.jsx</em>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Link</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">Logout</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">logoutUser</span><span class="p">();</span>
+  <span class="p">};</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">You</span> <span class="nx">are</span> <span class="nx">now</span> <span class="nx">logged</span> <span class="nx">out</span><span class="p">.</span> <span class="nx">Click</span> <span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="o">&gt;</span><span class="nx">here</span><span class="o">&lt;</span><span class="err">/Link&gt; to log back in.&lt;/p&gt;</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">)</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">Logout</span><span class="p">;</span>
+</code></pre></div>
+<p>Then, add a <code>logoutUser</code> method to the <code>App</code> component to remove the token from LocalStorage and update the state.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">logoutUser</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">isAuthenticated</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Bind the method:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="k">this</span><span class="p">.</span><span class="nx">logoutUser</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">logoutUser</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</code></pre></div>
+<p>Import the component into <em>App.jsx</em>, and then add the new route:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/logout&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Logout</span>
+    <span class="nx">logoutUser</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">logoutUser</span><span class="p">}</span>
+    <span class="nx">isAuthenticated</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+</code></pre></div>
+<p>To test:</p>
+
+<ol>
+<li>Log in</li>
+<li>Verify that the token was added to LocalStorage</li>
+<li>Log out</li>
+<li>Verify that the token was removed from LocalStorage</li>
+</ol>
+
+<p>Once you&#39;re done manually testing in the browser, ensure the unit tests pass. Then, add a snapshot test:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;Logout renders a snapshot properly&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">tree</span> <span class="o">=</span> <span class="nx">renderer</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">Router</span><span class="o">&gt;&lt;</span><span class="nx">Logout</span> <span class="nx">logoutUser</span><span class="o">=</span><span class="p">{</span><span class="nx">logoutUser</span><span class="p">}</span><span class="o">/&gt;&lt;</span><span class="err">/Router&gt;</span>
+  <span class="p">).</span><span class="nx">toJSON</span><span class="p">();</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">tree</span><span class="p">).</span><span class="nx">toMatchSnapshot</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>We need to provide the <code>&lt;Router&gt;</code> context (via the <a href="https://reacttraining.com/react-router/core/api/MemoryRouter">MemoryRouter</a>) since it&#39;s required in the component (by the <code>Link</code>).</p>
+
+<p>Don&#39;t forget the imports:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="nx">renderer</span> <span class="nx">from</span> <span class="s1">&#39;react-test-renderer&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">MemoryRouter</span> <span class="nx">as</span> <span class="nx">Router</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>Commit your code.</p>
+
+
+          
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - React Authentication - part one&amp;url=https%3A%2F%2Ftestdriven.io/part-three-react-auth-one&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+          <div class="page-nav">
+            
+              <a class="prev btn left-align" href="https://testdriven.io/part-three-react-bootstrap">&laquo; React Bootstrap</a>
+            
+            
+              <a class="next btn right-align" href="https://testdriven.io/part-three-mocking-user-interaction">Mocking User Interaction &raquo;</a>
+            
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+     <footer class="page-footer white">
+  <div class="container footer-container center-align">
+    <ul>
+      <li><small>Content by Michael Herman (michael@mherman.org)</small></li>
+      <li><small>&copy; Copyright 2017 <a href="http://testdriven.io">TestDriven.io</a></small></li>
+    </ul>
+  </div>
+</footer>
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100160465-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,15 @@
+# Site settings
+title: Test Driven Development Courses
+mobile-title: TDD Courses
+short-title: TestDriven.io
+email: michael@mherman.org
+markdown: redcarpet
+highlighter: pygments
+redcarpet:
+  extensions: ["no_intra_emphasis", "tables", "autolink", "strikethrough", "fenced_code_blocks", "with_toc_data"]
+baseurl: ""
+url: "https://testdriven.io"
+twitter: testdrivenio
+destination: docs
+source: src
+exclude: [old]

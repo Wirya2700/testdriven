@@ -1,0 +1,53 @@
+---
+title: Introduction
+layout: post
+date: 2017-06-21 23:59:59
+permalink: part-four-intro
+intro: true
+part: 4
+lesson: 1
+share: true
+---
+
+In Part 4, we'll add an *end-to-end* (e2e) testing solution, *form validation* to the React app, a *[Swagger](https://swagger.io/)* service to document the API, and deal with some tech debt. We'll also set up a staging environment to test on before the app goes into production.
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Objectives</span>
+
+By the end of part 4, you should be able to...
+
+1. Test the entire set of services with functional, end-to-end tests via TestCafe
+1. Integrate TestCafe into the continuous integration process
+1. Handle form validation within React
+1. Add a flash messaging system to the React app
+1. Describe the purpose of Swagger
+1. Generate a Swagger Spec based on an existing RESTful API
+1. Configure Swagger to interact with a service running inside a Docker Container
+1. Set up a staging environment on AWS
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">App</span>
+
+<div style="text-align:left;">
+  <img src="/assets/img/testdriven-architecture-part4.png" style="max-width: 100%; border:0; box-shadow: none;" alt="microservice architecture">
+</div>
+
+Check out the live app, running on EC2 - http://testdriven-production-alb-484275327.us-east-1.elb.amazonaws.com
+
+You can also test out the following endpoints...
+
+| Endpoint        | HTTP Method | Authenticated?  | Result            |
+|-----------------|-------------|-----------------|-------------------|
+| /auth/register  | POST        | No              | register user     |
+| /auth/login     | POST        | No              | log in user       |
+| /auth/logout    | GET         | Yes             | log out user      |
+| /auth/status    | GET         | Yes             | check user status |
+| /users          | GET         | No              | get all users     |
+| /users/:id      | GET         | No              | get single user   |
+| /users          | POST        | Yes (admin)     | add a user        |
+| /ping           | GET         | No              | sanity check      |
+
+Grab the code:
+
+1. [flask-microservices-main](https://github.com/realpython/flask-microservices-main/releases/tag/part4)
+1. [flask-microservices-users](https://github.com/realpython/flask-microservices-users/releases/tag/part4)
+1. [flask-microservices-client](https://github.com/realpython/flask-microservices-client)
+1. [flask-microservices-swagger](https://github.com/realpython/flask-microservices-swagger)

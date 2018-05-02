@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+    <title>Microservices with Docker, Flask, and React - RESTful Routes</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+  <link
+    rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+  >
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  >
+  <link
+    rel="stylesheet"
+    href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  >
+  <link
+    href="//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="//fonts.googleapis.com/css?family=Lato:900,300"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="https://fonts.googleapis.com/css?family=Montserrat"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link href="/assets/css/styles.css?1515124024017421000" rel="stylesheet">
+  <script
+    src="//code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    type="text/javascript"
+    src="/assets/js/main.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://gumroad.com/js/gumroad.js"
+  ></script>
+</head>
+
+
+  <body>
+
+    <nav class="indigo darken-4">
+  <div class="nav-wrapper">
+    <a href="/" class="nav-logo-container left">
+      <img
+        class="nav-logo" src="/assets/img/test_driven_io_full_logo_white_text.svg" alt="testdriven.io"
+      />
+    </a>
+    <a href="/" class="brand-logo main-brand-logo center show-on-large hide-on-med-and-down">
+      Test Driven Development Courses
+    </a>
+    <!-- <a href="/" class="brand-logo main-brand-logo hide-on-large-only">
+      TDD Courses
+    </a> -->
+    <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/">Course</a></li>
+      <li><a href="/course-contents">Contents</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="/">Home</a></li>
+      <li><a href="/">Course</a></li>
+      <li><a href="/course-contents">Contents</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <br>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col m3 hide-on-small-and-down">
+  <br>
+  <div id="toc-block" class="collection hide-on-small-and-down">
+    <ul class="collapsible collapsible-accordion">
+      
+        
+          <li>
+            <h5 data-part="1" class="collapsible-header  waves-effect waves-teal">
+              Part 1
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-intro">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-microservices">
+                Microservices
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-app-overview">
+                App Overview
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-getting-started">
+                Getting Started
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-docker-config">
+                Docker Config
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-postgres-setup">
+                Postgres Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-test-setup">
+                Test Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-flask-blueprints">
+                Flask Blueprints
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>9.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-restful-routes">
+                RESTful Routes
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>10.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-deployment">
+                Deployment
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>11.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-jinja-templates">
+                Jinja Templates
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>12.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-workflow">
+                Workflow
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+          <li>
+            <h5 data-part="2" class="collapsible-header  waves-effect waves-teal">
+              Part 2
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-intro">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-code-coverage-and-quality">
+                Code Coverage and Quality
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-continuous-integration">
+                Continuous Integration
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-setup">
+                React Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-testing-react">
+                Testing React
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-forms">
+                React Forms
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-and-docker">
+                React and Docker
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-next-steps">
+                Next Steps
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+          <li>
+            <h5 data-part="3" class="collapsible-header  waves-effect waves-teal">
+              Part 3
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-into">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-flask-migrate">
+                Flask Migrate
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-flask-bcrypt">
+                Flask Bcrypt
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-jwt-setup">
+                JWT Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-auth-routes">
+                Auth Routes
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-router">
+                React Router
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-bootstrap">
+                React Bootstrap
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-auth-one">
+                React Authentication - part one
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>9.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-mocking-user-interaction">
+                Mocking User Interaction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>10.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-auth-two">
+                React Authentication - part two
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>11.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-authorization">
+                Authorization
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>12.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-update-component">
+                Update Component
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>13.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-update-docker">
+                Update Docker
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+    </div>
+  </li>
+    </ul>
+  </div>
+</div>
+
+
+        <div class="col m9 hide-on-small-and-down">
+
+          <h2>RESTful Routes</h2>
+
+          
+            <h5>Part 1, Lesson 9</h5>
+
+            <div class="page-nav">
+              
+                <a class="prev btn left-align" href="https://testdriven.io/part-one-flask-blueprints">&laquo; Flask Blueprints</a>
+              
+              
+                <a class="next btn right-align" href="https://testdriven.io/part-one-deployment">Deployment &raquo;</a>
+              
+            </div>
+
+            
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - RESTful Routes&amp;url=https%3A%2F%2Ftestdriven.io/part-one-restful-routes&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+            <br><br>
+
+          
+
+          <p>Next, let&#39;s set up three new routes, following RESTful best practices, with TDD:</p>
+
+<table><thead>
+<tr>
+<th>Endpoint</th>
+<th>HTTP Method</th>
+<th>CRUD Method</th>
+<th>Result</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/users</td>
+<td>GET</td>
+<td>READ</td>
+<td>get all users</td>
+</tr>
+<tr>
+<td>/users/:id</td>
+<td>GET</td>
+<td>READ</td>
+<td>get single user</td>
+</tr>
+<tr>
+<td>/users</td>
+<td>POST</td>
+<td>CREATE</td>
+<td>add a user</td>
+</tr>
+</tbody></table>
+
+<p>For each, we&#39;ll-</p>
+
+<ol>
+<li>write a test</li>
+<li>run the test, watching it fail (<strong>red</strong>)</li>
+<li>write just enough code to get the test to pass (<strong>green</strong>)</li>
+<li><strong>refactor</strong> (if necessary)</li>
+</ol>
+
+<p>Let&#39; start with the POST route...</p>
+
+<h3 id="post">POST</h3>
+
+<p>Add the test to the <code>TestUserService()</code> class in <em>project/tests/test_users.py</em>:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">test_add_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure a new user can be added to the database.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="s1">&#39;/users&#39;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+                <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;michael&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;michael@realpython.com&#39;</span>
+            <span class="p">}),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;michael@realpython.com was added!&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Run the test to ensure it fails:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml <span class="se">\</span>
+  run users-service python manage.py <span class="nb">test</span>
+</code></pre></div>
+<p>Then add the route handler to <em>project/api/users.py</em></p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nd">@users_blueprint.route</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">add_user</span><span class="p">():</span>
+    <span class="n">post_data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">post_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">post_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">))</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">f</span><span class="s1">&#39;{email} was added!&#39;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">201</span>
+</code></pre></div>
+<p>Update the imports as well:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Blueprint</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span>
+
+<span class="kn">from</span> <span class="nn">project.api.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">project</span> <span class="kn">import</span> <span class="n">db</span>
+</code></pre></div>
+<p>Run the tests. They all should pass:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>Ran <span class="m">5</span> tests in <span class="m">0</span>.201s
+
+OK
+</code></pre></div>
+<p>What about errors and exceptions? Like:</p>
+
+<ol>
+<li>A payload is not sent</li>
+<li>The payload is invalid - i.e., the JSON object is empty or it contains the wrong keys</li>
+<li>The user already exists in the database</li>
+</ol>
+
+<p>Add some tests:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">test_add_user_invalid_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure error is thrown if the JSON object is empty.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="s1">&#39;/users&#39;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({}),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;Invalid payload.&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;fail&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">test_add_user_invalid_json_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure error is thrown if the JSON object does not have a username key.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="s1">&#39;/users&#39;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">}),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;Invalid payload.&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;fail&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">test_add_user_duplicate_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure error is thrown if the email already exists.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="s1">&#39;/users&#39;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+                <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;michael&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;michael@realpython.com&#39;</span>
+            <span class="p">}),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="s1">&#39;/users&#39;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+                <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;michael&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;michael@realpython.com&#39;</span>
+            <span class="p">}),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span>
+            <span class="s1">&#39;Sorry. That email already exists.&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;fail&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Ensure the tests fail, and then update the route handler:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nd">@users_blueprint.route</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">add_user</span><span class="p">():</span>
+    <span class="n">post_data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
+    <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;fail&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Invalid payload.&#39;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">post_data</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">400</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">post_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">post_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">))</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;success&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;{email} was added!&#39;</span>
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">201</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Sorry. That email already exists.&#39;</span>
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">400</span>
+    <span class="k">except</span> <span class="n">exc</span><span class="o">.</span><span class="n">IntegrityError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">400</span>
+</code></pre></div>
+<p>Add the import:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">exc</span>
+</code></pre></div>
+<p>Ensure the tests pass, and then move on to the next route...</p>
+
+<h3 id="get-single-user">GET single user</h3>
+
+<p>Start with a test:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">test_single_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure get single user behaves correctly.&quot;&quot;&quot;</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;/users/{user.id}&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Add the following imports:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="kn">from</span> <span class="nn">project</span> <span class="kn">import</span> <span class="n">db</span>
+<span class="kn">from</span> <span class="nn">project.api.models</span> <span class="kn">import</span> <span class="n">User</span>
+</code></pre></div>
+<p>Ensure the test breaks before writing the view:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nd">@users_blueprint.route</span><span class="p">(</span><span class="s1">&#39;/users/&lt;user_id&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_single_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get single user details&quot;&quot;&quot;</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
+            <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+            <span class="s1">&#39;active&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">active</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">200</span>
+</code></pre></div>
+<p>The tests should pass. Now, what about error handling?</p>
+
+<ol>
+<li>An <code>id</code> is not provided</li>
+<li>The <code>id</code> does not exist</li>
+</ol>
+
+<p>Tests:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">test_single_user_no_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure error is thrown if an id is not provided.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/users/blah&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">404</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;User does not exist&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;fail&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">test_single_user_incorrect_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure error is thrown if the id does not exist.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/users/999&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">404</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;User does not exist&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;fail&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Updated view:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nd">@users_blueprint.route</span><span class="p">(</span><span class="s1">&#39;/users/&lt;user_id&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_single_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get single user details&quot;&quot;&quot;</span>
+    <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;fail&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;User does not exist&#39;</span>
+    <span class="p">}</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">user_id</span><span class="p">))</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">404</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                    <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
+                    <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+                    <span class="s1">&#39;active&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">active</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">200</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">404</span>
+</code></pre></div>
+<h3 id="get-all-users">GET all users</h3>
+
+<p>Again, let&#39;s start with a test. Since we&#39;ll have to add a few users first, let&#39;s add a quick helper function to the top of the <em>project/tests/test_users.py</em> file, just above the <code>TestUserService()</code> class.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">add_user</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">user</span>
+</code></pre></div>
+<p>Now, refactor the <em>test_single_user()</em> test, like so:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">test_single_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure get single user behaves correctly.&quot;&quot;&quot;</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">add_user</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;/users/{user.id}&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>With that, let&#39;s add the new test:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">test_all_users</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure get all users behaves correctly.&quot;&quot;&quot;</span>
+    <span class="n">add_user</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">)</span>
+    <span class="n">add_user</span><span class="p">(</span><span class="s1">&#39;fletcher&#39;</span><span class="p">,</span> <span class="s1">&#39;fletcher@realpython.com&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;users&#39;</span><span class="p">]),</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;users&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span>
+            <span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;users&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;fletcher&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;users&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span>
+            <span class="s1">&#39;fletcher@realpython.com&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;users&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Make sure it fails. Then add the view:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nd">@users_blueprint.route</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_all_users</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Get all users&quot;&quot;&quot;</span>
+    <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;users&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">user</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">200</span>
+</code></pre></div>
+<p>Add the <code>to_json</code> method to the models:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
+        <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+        <span class="s1">&#39;active&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">active</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>Does the test past?</p>
+
+<p>Before moving on, let&#39;s test the route in the browser - <a href="http://DOCKER_MACHINE_IP:5001/users">http://DOCKER_MACHINE_IP:5001/users</a>. You should see:</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span></span><span class="p">{</span>
+  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;users&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Add a seed command to the <em>manage.py</em> file to populate the database with some initial data:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nd">@manager.command</span>
+<span class="k">def</span> <span class="nf">seed_db</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Seeds the database.&quot;&quot;&quot;</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;michael@realpython.com&quot;</span><span class="p">))</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;michaelherman&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;michael@mherman.org&quot;</span><span class="p">))</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div>
+<p>Try it out:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml <span class="se">\</span>
+  run users-service python manage.py seed_db
+</code></pre></div>
+<p>Make sure you can view the users in the JSON response <a href="http://DOCKER_MACHINE_IP:5001/users">http://DOCKER_MACHINE_IP:5001/users</a>.</p>
+
+
+          <div class="page-nav">
+            
+              <a class="prev btn left-align" href="https://testdriven.io/part-one-flask-blueprints">&laquo; Flask Blueprints</a>
+            
+            
+              <a class="next btn right-align" href="https://testdriven.io/part-one-deployment">Deployment &raquo;</a>
+            
+          </div>
+
+          
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - RESTful Routes&amp;url=https%3A%2F%2Ftestdriven.io/part-one-restful-routes&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+        </div>
+
+        <div class="hide-on-med-and-up">
+
+          <h2>RESTful Routes</h2>
+
+          <p>Next, let&#39;s set up three new routes, following RESTful best practices, with TDD:</p>
+
+<table><thead>
+<tr>
+<th>Endpoint</th>
+<th>HTTP Method</th>
+<th>CRUD Method</th>
+<th>Result</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/users</td>
+<td>GET</td>
+<td>READ</td>
+<td>get all users</td>
+</tr>
+<tr>
+<td>/users/:id</td>
+<td>GET</td>
+<td>READ</td>
+<td>get single user</td>
+</tr>
+<tr>
+<td>/users</td>
+<td>POST</td>
+<td>CREATE</td>
+<td>add a user</td>
+</tr>
+</tbody></table>
+
+<p>For each, we&#39;ll-</p>
+
+<ol>
+<li>write a test</li>
+<li>run the test, watching it fail (<strong>red</strong>)</li>
+<li>write just enough code to get the test to pass (<strong>green</strong>)</li>
+<li><strong>refactor</strong> (if necessary)</li>
+</ol>
+
+<p>Let&#39; start with the POST route...</p>
+
+<h3 id="post">POST</h3>
+
+<p>Add the test to the <code>TestUserService()</code> class in <em>project/tests/test_users.py</em>:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">test_add_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure a new user can be added to the database.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="s1">&#39;/users&#39;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+                <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;michael&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;michael@realpython.com&#39;</span>
+            <span class="p">}),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;michael@realpython.com was added!&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Run the test to ensure it fails:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml <span class="se">\</span>
+  run users-service python manage.py <span class="nb">test</span>
+</code></pre></div>
+<p>Then add the route handler to <em>project/api/users.py</em></p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nd">@users_blueprint.route</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">add_user</span><span class="p">():</span>
+    <span class="n">post_data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">post_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">post_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">))</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">f</span><span class="s1">&#39;{email} was added!&#39;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">201</span>
+</code></pre></div>
+<p>Update the imports as well:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Blueprint</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span>
+
+<span class="kn">from</span> <span class="nn">project.api.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">project</span> <span class="kn">import</span> <span class="n">db</span>
+</code></pre></div>
+<p>Run the tests. They all should pass:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>Ran <span class="m">5</span> tests in <span class="m">0</span>.201s
+
+OK
+</code></pre></div>
+<p>What about errors and exceptions? Like:</p>
+
+<ol>
+<li>A payload is not sent</li>
+<li>The payload is invalid - i.e., the JSON object is empty or it contains the wrong keys</li>
+<li>The user already exists in the database</li>
+</ol>
+
+<p>Add some tests:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">test_add_user_invalid_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure error is thrown if the JSON object is empty.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="s1">&#39;/users&#39;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({}),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;Invalid payload.&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;fail&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">test_add_user_invalid_json_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure error is thrown if the JSON object does not have a username key.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="s1">&#39;/users&#39;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">}),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;Invalid payload.&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;fail&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">test_add_user_duplicate_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure error is thrown if the email already exists.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="s1">&#39;/users&#39;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+                <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;michael&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;michael@realpython.com&#39;</span>
+            <span class="p">}),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="s1">&#39;/users&#39;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+                <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;michael&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;michael@realpython.com&#39;</span>
+            <span class="p">}),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span>
+            <span class="s1">&#39;Sorry. That email already exists.&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;fail&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Ensure the tests fail, and then update the route handler:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nd">@users_blueprint.route</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">add_user</span><span class="p">():</span>
+    <span class="n">post_data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
+    <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;fail&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Invalid payload.&#39;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">post_data</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">400</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">post_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">post_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">))</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;success&#39;</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;{email} was added!&#39;</span>
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">201</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response_object</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Sorry. That email already exists.&#39;</span>
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">400</span>
+    <span class="k">except</span> <span class="n">exc</span><span class="o">.</span><span class="n">IntegrityError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">400</span>
+</code></pre></div>
+<p>Add the import:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">exc</span>
+</code></pre></div>
+<p>Ensure the tests pass, and then move on to the next route...</p>
+
+<h3 id="get-single-user">GET single user</h3>
+
+<p>Start with a test:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">test_single_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure get single user behaves correctly.&quot;&quot;&quot;</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;/users/{user.id}&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Add the following imports:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="kn">from</span> <span class="nn">project</span> <span class="kn">import</span> <span class="n">db</span>
+<span class="kn">from</span> <span class="nn">project.api.models</span> <span class="kn">import</span> <span class="n">User</span>
+</code></pre></div>
+<p>Ensure the test breaks before writing the view:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nd">@users_blueprint.route</span><span class="p">(</span><span class="s1">&#39;/users/&lt;user_id&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_single_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get single user details&quot;&quot;&quot;</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+    <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
+            <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+            <span class="s1">&#39;active&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">active</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">200</span>
+</code></pre></div>
+<p>The tests should pass. Now, what about error handling?</p>
+
+<ol>
+<li>An <code>id</code> is not provided</li>
+<li>The <code>id</code> does not exist</li>
+</ol>
+
+<p>Tests:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">test_single_user_no_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure error is thrown if an id is not provided.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/users/blah&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">404</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;User does not exist&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;fail&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">test_single_user_incorrect_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure error is thrown if the id does not exist.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/users/999&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">404</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;User does not exist&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;fail&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Updated view:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nd">@users_blueprint.route</span><span class="p">(</span><span class="s1">&#39;/users/&lt;user_id&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_single_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get single user details&quot;&quot;&quot;</span>
+    <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;fail&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;User does not exist&#39;</span>
+    <span class="p">}</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">user_id</span><span class="p">))</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">404</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                    <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
+                    <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+                    <span class="s1">&#39;active&#39;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">active</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">200</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">404</span>
+</code></pre></div>
+<h3 id="get-all-users">GET all users</h3>
+
+<p>Again, let&#39;s start with a test. Since we&#39;ll have to add a few users first, let&#39;s add a quick helper function to the top of the <em>project/tests/test_users.py</em> file, just above the <code>TestUserService()</code> class.</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">add_user</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">user</span>
+</code></pre></div>
+<p>Now, refactor the <em>test_single_user()</em> test, like so:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">test_single_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure get single user behaves correctly.&quot;&quot;&quot;</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">add_user</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;/users/{user.id}&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>With that, let&#39;s add the new test:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">test_all_users</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure get all users behaves correctly.&quot;&quot;&quot;</span>
+    <span class="n">add_user</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">)</span>
+    <span class="n">add_user</span><span class="p">(</span><span class="s1">&#39;fletcher&#39;</span><span class="p">,</span> <span class="s1">&#39;fletcher@realpython.com&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;users&#39;</span><span class="p">]),</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;users&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span>
+            <span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;users&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;fletcher&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;users&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span>
+            <span class="s1">&#39;fletcher@realpython.com&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;users&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;email&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>Make sure it fails. Then add the view:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nd">@users_blueprint.route</span><span class="p">(</span><span class="s1">&#39;/users&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">get_all_users</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Get all users&quot;&quot;&quot;</span>
+    <span class="n">response_object</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;users&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">user</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">all</span><span class="p">()]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">response_object</span><span class="p">),</span> <span class="mi">200</span>
+</code></pre></div>
+<p>Add the <code>to_json</code> method to the models:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
+        <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+        <span class="s1">&#39;active&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">active</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>Does the test past?</p>
+
+<p>Before moving on, let&#39;s test the route in the browser - <a href="http://DOCKER_MACHINE_IP:5001/users">http://DOCKER_MACHINE_IP:5001/users</a>. You should see:</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span></span><span class="p">{</span>
+  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;users&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Add a seed command to the <em>manage.py</em> file to populate the database with some initial data:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span></span><span class="nd">@manager.command</span>
+<span class="k">def</span> <span class="nf">seed_db</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Seeds the database.&quot;&quot;&quot;</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;michael@realpython.com&quot;</span><span class="p">))</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;michaelherman&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;michael@mherman.org&quot;</span><span class="p">))</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</code></pre></div>
+<p>Try it out:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml <span class="se">\</span>
+  run users-service python manage.py seed_db
+</code></pre></div>
+<p>Make sure you can view the users in the JSON response <a href="http://DOCKER_MACHINE_IP:5001/users">http://DOCKER_MACHINE_IP:5001/users</a>.</p>
+
+
+          
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - RESTful Routes&amp;url=https%3A%2F%2Ftestdriven.io/part-one-restful-routes&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+          <div class="page-nav">
+            
+              <a class="prev btn left-align" href="https://testdriven.io/part-one-flask-blueprints">&laquo; Flask Blueprints</a>
+            
+            
+              <a class="next btn right-align" href="https://testdriven.io/part-one-deployment">Deployment &raquo;</a>
+            
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+     <footer class="page-footer white">
+  <div class="container footer-container center-align">
+    <ul>
+      <li><small>Content by Michael Herman (michael@mherman.org)</small></li>
+      <li><small>&copy; Copyright 2017 <a href="http://testdriven.io">TestDriven.io</a></small></li>
+    </ul>
+  </div>
+</footer>
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100160465-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+  </body>
+</html>

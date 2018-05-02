@@ -1,0 +1,239 @@
+---
+title: EC2 Container Registry
+layout: post
+date: 2017-07-23 23:59:59
+permalink: part-five-ec2-container-registry
+intro: false
+part: 5
+lesson: 3
+share: true
+---
+
+In this lesson, we'll add the EC2 Container Registry (ECR), a private image registry into the CI process...
+
+---
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">ECR</span>
+
+Why [EC2 Container Registry](https://aws.amazon.com/ecr/)?
+
+1. We do not want to add any sensitive info to the images on Docker Hub since they are publicly available
+1. ECR plays nice with the [EC2 Container Service](https://aws.amazon.com/ecs/) (which we'll be setting up shortly)
+
+> Why Docker Hub *and* ECR? We'll continue to utilize Docker Hub for the development image repos to save a bit of money.
+
+Navigate to [Amazon ECS](https://console.aws.amazon.com/ecs), click "Repositories", and then add five new repositories:
+
+1. *flask-microservices-users*
+1. *flask-microservices-users_db*
+1. *flask-microservices-client*
+1. *flask-microservices-swagger*
+1. *flask-microservices-nginx*
+
+> You can also create a new repository with the [AWS CLI](http://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_AWSCLI.html#AWSCLI_create_repository):
+>
+```sh
+$ aws ecr create-repository --repository-name REPOSITORY_NAME
+```
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Update Travis</span>
+
+Update *docker_build.sh* to only pull images from Docker Hub if the branch is `development`:
+
+```sh
+#!/bin/sh
+
+if [ "$TRAVIS_BRANCH" == "development" ]; then
+  docker login -e $DOCKER_EMAIL -u $DOCKER_ID -p $DOCKER_PASSWORD
+  docker pull $DOCKER_ID/$USERS
+  docker pull $DOCKER_ID/$USERS_DB
+  docker pull $DOCKER_ID/$CLIENT
+  docker pull $DOCKER_ID/$SWAGGER
+  docker pull $DOCKER_ID/$NGINX
+fi
+
+docker-compose -f docker-compose-ci.yml up -d --build
+```
+
+Next, update *docker_push.sh*:
+
+```sh
+#!/bin/sh
+
+if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]
+then
+
+  if [ "$TRAVIS_BRANCH" == "development" ]
+  then
+    docker login -e $DOCKER_EMAIL -u $DOCKER_ID -p $DOCKER_PASSWORD
+    export TAG=$TRAVIS_BRANCH
+    export REPO=$DOCKER_ID
+  fi
+
+  if [ "$TRAVIS_BRANCH" == "staging" ] || \
+     [ "$TRAVIS_BRANCH" == "production" ]
+  then
+    curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+    unzip awscli-bundle.zip
+    ./awscli-bundle/install -b ~/bin/aws
+    export PATH=~/bin:$PATH
+    # add AWS_ACCOUNT_ID, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY env vars
+    eval $(aws ecr get-login --region us-east-1)
+    export TAG=$TRAVIS_BRANCH
+    export REPO=$AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com
+  fi
+
+  if [ "$TRAVIS_BRANCH" == "development" ] || \
+     [ "$TRAVIS_BRANCH" == "staging" ] || \
+     [ "$TRAVIS_BRANCH" == "production" ]
+  then
+    # users
+    docker build $USERS_REPO -t $USERS:$COMMIT
+    docker tag $USERS:$COMMIT $REPO/$USERS:$TAG
+    docker push $REPO/$USERS:$TAG
+    # users db
+    docker build $USERS_DB_REPO -t $USERS_DB:$COMMIT
+    docker tag $USERS_DB:$COMMIT $REPO/$USERS_DB:$TAG
+    docker push $REPO/$USERS_DB:$TAG
+    # client
+    docker build $CLIENT_REPO -t $CLIENT:$COMMIT
+    docker tag $CLIENT:$COMMIT $REPO/$CLIENT:$TAG
+    docker push $REPO/$CLIENT:$TAG
+    # swagger
+    docker build $SWAGGER_REPO -t $SWAGGER:$COMMIT
+    docker tag $SWAGGER:$COMMIT $REPO/$SWAGGER:$TAG
+    docker push $REPO/$SWAGGER:$TAG
+    # nginx
+    docker build $NGINX_REPO -t $NGINX:$COMMIT
+    docker tag $NGINX:$COMMIT $REPO/$NGINX:$TAG
+    docker push $REPO/$NGINX:$TAG
+  fi
+fi
+```
+
+So, if the branch is `staging` or `production` and it's not a pull request, we download the [AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/awscli-install-bundle.html), log in to AWS, and then set the appropriate `TAG` and `REPO`.
+
+Grab your AWS credentials from the *~/.aws/credentials* file:
+
+```sh
+$ cat ~/.aws/credentials
+```
+
+Set them as environment variables within the [Repository Settings](https://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-Repository-Settings) for *flask-microservices-main* on Travis:
+
+1. AWS_ACCOUNT_ID - YOUR_ACCOUNT_ID
+1. AWS_ACCESS_KEY_ID - YOUR_ACCCES_KEY_ID
+1. AWS_SECRET_ACCESS_KEY - YOUR_SECRET_ACCESS_KEY
+
+Let's test this out. Create a `staging` branch, commit your code, and then push it to GitHub. If all goes well, the build should pass and a new image should be added to each of the repositories.
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Docker Compose</span>
+
+We can remove the *docker-compose-prod.yml* and *docker-compose-staging.yml* files and, instead, use *docker-compose-ci.yml* for both staging and production.
+
+Next, for the staging and production builds, we'll need to update the following environment variables before the images are built in *docker_push.sh*:
+
+1. `REACT_APP_USERS_SERVICE_URL`
+1. `SECRET_KEY`
+
+> These are branch specific and the `SECRET_KEY` needs to be encrypted.
+
+Update *docker_push.sh*, like so:
+
+```sh
+#!/bin/sh
+if [ -z "$TRAVIS_PULL_REQUEST" ] || [ "$TRAVIS_PULL_REQUEST" == "false" ]
+then
+
+  if [ "$TRAVIS_BRANCH" == "development" ]
+  then
+    docker login -e $DOCKER_EMAIL -u $DOCKER_ID -p $DOCKER_PASSWORD
+    export TAG=$TRAVIS_BRANCH
+    export REPO=$DOCKER_ID
+  fi
+
+  if [ "$TRAVIS_BRANCH" == "staging" ] || \
+     [ "$TRAVIS_BRANCH" == "production" ]
+  then
+    curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+    unzip awscli-bundle.zip
+    ./awscli-bundle/install -b ~/bin/aws
+    export PATH=~/bin:$PATH
+    # add AWS_ACCOUNT_ID, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY env vars
+    eval $(aws ecr get-login --region us-east-1)
+    export TAG=$TRAVIS_BRANCH
+    export REPO=$AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com
+  fi
+
+  if [ "$TRAVIS_BRANCH" == "staging" ]
+  then
+    export REACT_APP_USERS_SERVICE_URL="TBD"
+    export SECRET_KEY="TBD"
+  fi
+
+  if [ "$TRAVIS_BRANCH" == "production" ]
+  then
+    export REACT_APP_USERS_SERVICE_URL="TBD"
+    export SECRET_KEY="TBD"
+  fi
+
+  if [ "$TRAVIS_BRANCH" == "development" ] || \
+     [ "$TRAVIS_BRANCH" == "staging" ] || \
+     [ "$TRAVIS_BRANCH" == "production" ]
+  then
+    # users
+    docker build $USERS_REPO -t $USERS:$COMMIT
+    docker tag $USERS:$COMMIT $REPO/$USERS:$TAG
+    docker push $REPO/$USERS:$TAG
+    # users db
+    docker build $USERS_DB_REPO -t $USERS_DB:$COMMIT
+    docker tag $USERS_DB:$COMMIT $REPO/$USERS_DB:$TAG
+    docker push $REPO/$USERS_DB:$TAG
+    # client
+    docker build $CLIENT_REPO -t $CLIENT:$COMMIT
+    docker tag $CLIENT:$COMMIT $REPO/$CLIENT:$TAG
+    docker push $REPO/$CLIENT:$TAG
+    # swagger
+    docker build $SWAGGER_REPO -t $SWAGGER:$COMMIT
+    docker tag $SWAGGER:$COMMIT $REPO/$SWAGGER:$TAG
+    docker push $REPO/$SWAGGER:$TAG
+    # nginx
+    docker build $NGINX_REPO -t $NGINX:$COMMIT
+    docker tag $NGINX:$COMMIT $REPO/$NGINX:$TAG
+    docker push $REPO/$NGINX:$TAG
+  fi
+
+fi
+```
+
+Hold off on updating those variables for now. We'll get to it when we set up the EC2 Container Service.
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Workflow</span>
+
+With that, test out the following workflow:
+
+**Development**:
+
+1. Create a new feature branch from the `master` branch
+1. Open PR against the `development` branch
+1. New build is triggered on Travis
+1. If the tests pass, merge the PR
+1. New build is triggered on Travis
+1. If the tests pass, images are created, tagged `development`, and pushed to Docker Hub
+
+**Staging**:
+
+1. Open PR from the `development` branch against the `staging` branch
+1. New build is triggered on Travis
+1. If the tests pass, merge the PR
+1. New build is triggered on Travis
+1. If the tests pass, images are created, tagged `staging`, and pushed to ECR
+
+**Production**:
+
+1. Open PR from the `staging` branch against the `production` branch
+1. New build is triggered on Travis
+1. If the tests pass, merge the PR
+1. New build is triggered on Travis
+1. If the tests pass, images are created, tagged `production`, and pushed to ECR
+1. Merge the changes into the `master` branch

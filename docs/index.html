@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+    <title>Test Driven Development Courses</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+  <link
+    rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+  >
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  >
+  <link
+    rel="stylesheet"
+    href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  >
+  <link
+    href="//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="//fonts.googleapis.com/css?family=Lato:900,300"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="https://fonts.googleapis.com/css?family=Montserrat"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link href="/assets/css/styles.css?1515124024017421000" rel="stylesheet">
+  <script
+    src="//code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    type="text/javascript"
+    src="/assets/js/main.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://gumroad.com/js/gumroad.js"
+  ></script>
+</head>
+
+
+  <body>
+
+    <nav class="indigo darken-4">
+  <div class="nav-wrapper">
+    <a href="/" class="nav-logo-container left">
+      <img
+        class="nav-logo" src="/assets/img/test_driven_io_full_logo_white_text.svg" alt="testdriven.io"
+      />
+    </a>
+    <a href="/" class="brand-logo main-brand-logo center show-on-large hide-on-med-and-down">
+      Test Driven Development Courses
+    </a>
+    <!-- <a href="/" class="brand-logo main-brand-logo hide-on-large-only">
+      TDD Courses
+    </a> -->
+    <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/">Course</a></li>
+      <li><a href="/course-contents">Contents</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="/">Home</a></li>
+      <li><a href="/">Course</a></li>
+      <li><a href="/course-contents">Contents</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <br>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col m3 hide-on-small-and-down">
+  <br>
+  <div id="toc-block" class="collection hide-on-small-and-down">
+    <ul class="collapsible collapsible-accordion">
+      
+        
+          <li>
+            <h5 data-part="1" class="collapsible-header  waves-effect waves-teal">
+              Part 1
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-intro">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-microservices">
+                Microservices
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-app-overview">
+                App Overview
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-getting-started">
+                Getting Started
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-docker-config">
+                Docker Config
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-postgres-setup">
+                Postgres Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-test-setup">
+                Test Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-flask-blueprints">
+                Flask Blueprints
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>9.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-restful-routes">
+                RESTful Routes
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>10.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-deployment">
+                Deployment
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>11.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-jinja-templates">
+                Jinja Templates
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>12.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-workflow">
+                Workflow
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+          <li>
+            <h5 data-part="2" class="collapsible-header  waves-effect waves-teal">
+              Part 2
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-intro">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-code-coverage-and-quality">
+                Code Coverage and Quality
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-continuous-integration">
+                Continuous Integration
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-setup">
+                React Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-testing-react">
+                Testing React
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-forms">
+                React Forms
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-and-docker">
+                React and Docker
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-next-steps">
+                Next Steps
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+          <li>
+            <h5 data-part="3" class="collapsible-header  waves-effect waves-teal">
+              Part 3
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-into">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-flask-migrate">
+                Flask Migrate
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-flask-bcrypt">
+                Flask Bcrypt
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-jwt-setup">
+                JWT Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-auth-routes">
+                Auth Routes
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-router">
+                React Router
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-bootstrap">
+                React Bootstrap
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-auth-one">
+                React Authentication - part one
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>9.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-mocking-user-interaction">
+                Mocking User Interaction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>10.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-auth-two">
+                React Authentication - part two
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>11.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-authorization">
+                Authorization
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>12.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-update-component">
+                Update Component
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>13.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-update-docker">
+                Update Docker
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+    </div>
+  </li>
+    </ul>
+  </div>
+</div>
+
+
+        <div class="col m9 hide-on-small-and-down">
+
+          <h2>Microservices with Docker, Flask, and React</h2>
+
+          
+
+          <p><hr><br></p>
+
+<p><em>Learn how to build, test, and deploy microservices powered by Docker, Flask, and React!</em></p>
+
+<p>In this course, you will learn how to quickly spin up a reproducible development environment with <em>Docker</em> to manage a number of <em>microservices</em>. Once the app is up and running locally, you&#39;ll learn how to deploy it to an <em>Amazon EC2</em> instance. Finally, we&#39;ll look at scaling the services on <em>Amazon EC2 Container Service (ECS)</em> and adding <em>AWS Lambda</em>.</p>
+
+<p>We&#39;ll also be practicing test-driven development (TDD), writing tests first when it makes sense to do so. The focus will be on server-side unit, functional, and integration tests along with end-to-end tests to ensure the entire system works as expected.</p>
+
+<p>&quot;Code without tests is broken by design.&quot; - Jacob Kaplan-Moss</p>
+
+<div style="text-align:left;">
+  <img src="/assets/img/course/03_flask-tdd-logo.png" style="max-width: 100%; border:0; box-shadow: none;" alt="flask tdd logo">
+</div>
+
+<div>
+  <p><a class="waves-effect waves-light red darken-1 center-align btn-large" href="https://gum.co/flask">Purchase Now!</a></p>
+  <p><a href="https://testdriven.io/part-one-intro">Or, preview parts 1 through 3</a></p>
+</div>
+
+<p>(<em>Current version: 2.1, released on 12/22/2017</em>)</p>
+
+<p><a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices%20with%20Docker,%20Flask,%20and%20React%20%23webdev&amp;url=https://testdriven.io&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p><br><hr><br></p>
+
+<h4 id="what-will-you-build">What will you build?</h4>
+
+<h5 id="services">Services</h5>
+
+<ol>
+<li><em>users</em> - Flask app for managing users and auth</li>
+<li><em>client</em> - client-side, React app</li>
+<li><em>nginx</em> - reverse proxy web server</li>
+<li><em>swagger</em> - Swagger API docs</li>
+<li><em>scores</em> - Flask app for managing user scores</li>
+<li><em>exercises</em> - Flask app for managing exercises</li>
+</ol>
+
+<h5 id="app">App</h5>
+
+<div style="text-align:left;">
+  <img src="/assets/img/course/07_testdriven.png" style="max-width: 100%; border:0; box-shadow: none;" alt="microservice architecture">
+</div>
+
+<p>Check out the live app, running on multiple EC2 instances -</p>
+
+<ol>
+<li><a href="http://testdriven-production-alb-484275327.us-east-1.elb.amazonaws.com/">Production</a></li>
+<li><a href="http://testdriven-staging-alb-1378944177.us-east-1.elb.amazonaws.com/">Staging</a></li>
+</ol>
+
+<p><br></p>
+
+<div>
+  <p><a class="waves-effect waves-light red darken-1 center-align btn-large" href="https://gum.co/flask">Purchase Now!</a></p>
+  <p><a href="https://testdriven.io/part-one-intro">Or, preview parts 1 through 3</a></p>
+</div>
+
+<p><br><hr><br></p>
+
+<h4 id="what-will-you-learn">What will you learn?</h4>
+
+<h5 id="part-1">Part 1</h5>
+
+<p>In this first part, you&#39;ll learn how to quickly spin up a reproducible development environment with <em>Docker</em> to create a <em>RESTful API</em> powered by <em>Python</em>, <em>Postgres</em>, and the <em>Flask</em> web framework. After the app is up and running locally, you&#39;ll learn how to deploy it to an <em>Amazon EC2</em> instance.</p>
+
+<p><strong>Tools and Technologies</strong>: Python, Flask, Flask-Script, Flask-SQLAlchemy, Flask-Testing, Gunicorn, Nginx, Docker, Docker Compose, Docker Machine, Postgres, Flask Blueprints, Jinja Templates</p>
+
+<h5 id="part-2">Part 2</h5>
+
+<p>In part 2, we&#39;ll add <em>code coverage</em> and <em>continuous integration</em> testing to ensure that each service can be run and tested independently from the whole. Finally, we&#39;ll add <em>ReactJS</em> along with <em>Jest</em>, a JavaScript test runner, and <em>Enzyme</em>, a testing library made specifically for React, to the client-side.</p>
+
+<p><strong>Tools and Technologies</strong>: Code Coverage with Coverage.py, Node, NPM, Create React App, Axios, Flask-CORS, React forms</p>
+
+<h5 id="part-3">Part 3</h5>
+
+<p>In part 3, we&#39;ll add <em>database migrations</em> along with <em>password hashing</em> in order to implement <em>token-based authentication</em> to the users service with JSON Web Tokens (JWTs). We&#39;ll then turn our attention to the client and add <em>React Router</em> to the React app to enable client-side routing along with client-side authentication.</p>
+
+<p><strong>Tools and Technologies</strong>: Flask-Migrate, Flask-Bcrypt, PyJWT, react-router-dom, React Bootstrap, React Router Bootstrap, React Authentication and Authorization</p>
+
+<h5 id="part-4">Part 4</h5>
+
+<p>In part 4, we&#39;ll add an <em>end-to-end</em> (e2e) testing solution, <em>form validation</em> to the React app, a <em>Swagger</em> service to document the API, and deal with some tech debt. We&#39;ll also set up a staging environment to test on before the app goes into production.</p>
+
+<p><strong>Tools and Technologies</strong>: TestCafe, Swagger UI</p>
+
+<h5 id="part-5">Part 5</h5>
+
+<p>In part 5, we&#39;ll dive into <em>container orchestration</em> with Amazon ECS as we move our staging and production environments to a more scaleable infrastructure. We&#39;ll also add Amazon EC2 Container Registry along with Amazon&#39;s Elastic Load Balancing for <em>load balancing</em> and Amazon&#39;s Relational Database Service for <em>data persistence</em>.</p>
+
+<p><strong>Tools and Technologies</strong>: Docker Hub, AWS, EC2, EC2 Container Registry (ECR), EC2 Container Service (ECS), Elastic Load Balancing (ELB), Application Load Balancer (ALB), Relational Database Service (RDS)</p>
+
+<h5 id="part-6">Part 6</h5>
+
+<p>In part 6, we&#39;ll focus our attention on adding a new <em>Flask</em> service, with two RESTful-resources, to evaluate user-submitted code. Along the way, we&#39;ll tie in <em>AWS Lambda</em> and <em>API Gateway</em> and spend a bit of time refactoring <em>React</em> and the <em>end-to-end</em> test suite. Finally, we&#39;ll update the staging and production environments on ECS.</p>
+
+<p><strong>Tools and Technologies</strong>: AWS Lambda and API Gateway</p>
+
+<h5 id="part-7">Part 7</h5>
+
+<p>In part 7, we&#39;ll refactor the <em>AWS Lambda</em> function to make it dynamic so it can be used with more than one exercise, introduce <em>type checking</em> on the client-side with <em>React PropTypes</em>, and update a number of components. We&#39;ll also introduce another new <em>Flask</em> service to manage scores. Again, we&#39;ll update the staging and production environments on ECS.</p>
+
+<p><strong>Tools and Technologies</strong>: AWS Lambda and ECS, PropTypes, and Flask</p>
+
+<p><br></p>
+
+<div>
+  <p><a class="waves-effect waves-light red darken-1 center-align btn-large" href="https://gum.co/flask">Purchase Now!</a></p>
+  <p><a href="https://testdriven.io/part-one-intro">Or, preview parts 1 through 3</a></p>
+</div>
+
+<p><br><hr><br></p>
+
+<p><em>Join our mailing list to be notified about updates and new releases.</em></p>
+
+<form action="//RealPython.us5.list-manage.com/subscribe/post?u=9fd10a451eec3ca6b2855ab2c&amp;id=801201b3a9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<div class="row">
+<div class="input-field col s6">
+<input placeholder="Enter your email..." id="first_name" type="email" name="EMAIL">
+</div>
+</div>
+<div class="row">
+<div class="col s6">
+&nbsp;<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+<i class="material-icons right">send</i>
+</button>
+</div>
+</div>
+</form>
+
+<p><br></p>
+
+
+          <div class="page-nav">
+            
+            
+          </div>
+
+          
+
+
+        </div>
+
+        <div class="hide-on-med-and-up">
+
+          <h2>Microservices with Docker, Flask, and React</h2>
+
+          <p><hr><br></p>
+
+<p><em>Learn how to build, test, and deploy microservices powered by Docker, Flask, and React!</em></p>
+
+<p>In this course, you will learn how to quickly spin up a reproducible development environment with <em>Docker</em> to manage a number of <em>microservices</em>. Once the app is up and running locally, you&#39;ll learn how to deploy it to an <em>Amazon EC2</em> instance. Finally, we&#39;ll look at scaling the services on <em>Amazon EC2 Container Service (ECS)</em> and adding <em>AWS Lambda</em>.</p>
+
+<p>We&#39;ll also be practicing test-driven development (TDD), writing tests first when it makes sense to do so. The focus will be on server-side unit, functional, and integration tests along with end-to-end tests to ensure the entire system works as expected.</p>
+
+<p>&quot;Code without tests is broken by design.&quot; - Jacob Kaplan-Moss</p>
+
+<div style="text-align:left;">
+  <img src="/assets/img/course/03_flask-tdd-logo.png" style="max-width: 100%; border:0; box-shadow: none;" alt="flask tdd logo">
+</div>
+
+<div>
+  <p><a class="waves-effect waves-light red darken-1 center-align btn-large" href="https://gum.co/flask">Purchase Now!</a></p>
+  <p><a href="https://testdriven.io/part-one-intro">Or, preview parts 1 through 3</a></p>
+</div>
+
+<p>(<em>Current version: 2.1, released on 12/22/2017</em>)</p>
+
+<p><a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices%20with%20Docker,%20Flask,%20and%20React%20%23webdev&amp;url=https://testdriven.io&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p><br><hr><br></p>
+
+<h4 id="what-will-you-build">What will you build?</h4>
+
+<h5 id="services">Services</h5>
+
+<ol>
+<li><em>users</em> - Flask app for managing users and auth</li>
+<li><em>client</em> - client-side, React app</li>
+<li><em>nginx</em> - reverse proxy web server</li>
+<li><em>swagger</em> - Swagger API docs</li>
+<li><em>scores</em> - Flask app for managing user scores</li>
+<li><em>exercises</em> - Flask app for managing exercises</li>
+</ol>
+
+<h5 id="app">App</h5>
+
+<div style="text-align:left;">
+  <img src="/assets/img/course/07_testdriven.png" style="max-width: 100%; border:0; box-shadow: none;" alt="microservice architecture">
+</div>
+
+<p>Check out the live app, running on multiple EC2 instances -</p>
+
+<ol>
+<li><a href="http://testdriven-production-alb-484275327.us-east-1.elb.amazonaws.com/">Production</a></li>
+<li><a href="http://testdriven-staging-alb-1378944177.us-east-1.elb.amazonaws.com/">Staging</a></li>
+</ol>
+
+<p><br></p>
+
+<div>
+  <p><a class="waves-effect waves-light red darken-1 center-align btn-large" href="https://gum.co/flask">Purchase Now!</a></p>
+  <p><a href="https://testdriven.io/part-one-intro">Or, preview parts 1 through 3</a></p>
+</div>
+
+<p><br><hr><br></p>
+
+<h4 id="what-will-you-learn">What will you learn?</h4>
+
+<h5 id="part-1">Part 1</h5>
+
+<p>In this first part, you&#39;ll learn how to quickly spin up a reproducible development environment with <em>Docker</em> to create a <em>RESTful API</em> powered by <em>Python</em>, <em>Postgres</em>, and the <em>Flask</em> web framework. After the app is up and running locally, you&#39;ll learn how to deploy it to an <em>Amazon EC2</em> instance.</p>
+
+<p><strong>Tools and Technologies</strong>: Python, Flask, Flask-Script, Flask-SQLAlchemy, Flask-Testing, Gunicorn, Nginx, Docker, Docker Compose, Docker Machine, Postgres, Flask Blueprints, Jinja Templates</p>
+
+<h5 id="part-2">Part 2</h5>
+
+<p>In part 2, we&#39;ll add <em>code coverage</em> and <em>continuous integration</em> testing to ensure that each service can be run and tested independently from the whole. Finally, we&#39;ll add <em>ReactJS</em> along with <em>Jest</em>, a JavaScript test runner, and <em>Enzyme</em>, a testing library made specifically for React, to the client-side.</p>
+
+<p><strong>Tools and Technologies</strong>: Code Coverage with Coverage.py, Node, NPM, Create React App, Axios, Flask-CORS, React forms</p>
+
+<h5 id="part-3">Part 3</h5>
+
+<p>In part 3, we&#39;ll add <em>database migrations</em> along with <em>password hashing</em> in order to implement <em>token-based authentication</em> to the users service with JSON Web Tokens (JWTs). We&#39;ll then turn our attention to the client and add <em>React Router</em> to the React app to enable client-side routing along with client-side authentication.</p>
+
+<p><strong>Tools and Technologies</strong>: Flask-Migrate, Flask-Bcrypt, PyJWT, react-router-dom, React Bootstrap, React Router Bootstrap, React Authentication and Authorization</p>
+
+<h5 id="part-4">Part 4</h5>
+
+<p>In part 4, we&#39;ll add an <em>end-to-end</em> (e2e) testing solution, <em>form validation</em> to the React app, a <em>Swagger</em> service to document the API, and deal with some tech debt. We&#39;ll also set up a staging environment to test on before the app goes into production.</p>
+
+<p><strong>Tools and Technologies</strong>: TestCafe, Swagger UI</p>
+
+<h5 id="part-5">Part 5</h5>
+
+<p>In part 5, we&#39;ll dive into <em>container orchestration</em> with Amazon ECS as we move our staging and production environments to a more scaleable infrastructure. We&#39;ll also add Amazon EC2 Container Registry along with Amazon&#39;s Elastic Load Balancing for <em>load balancing</em> and Amazon&#39;s Relational Database Service for <em>data persistence</em>.</p>
+
+<p><strong>Tools and Technologies</strong>: Docker Hub, AWS, EC2, EC2 Container Registry (ECR), EC2 Container Service (ECS), Elastic Load Balancing (ELB), Application Load Balancer (ALB), Relational Database Service (RDS)</p>
+
+<h5 id="part-6">Part 6</h5>
+
+<p>In part 6, we&#39;ll focus our attention on adding a new <em>Flask</em> service, with two RESTful-resources, to evaluate user-submitted code. Along the way, we&#39;ll tie in <em>AWS Lambda</em> and <em>API Gateway</em> and spend a bit of time refactoring <em>React</em> and the <em>end-to-end</em> test suite. Finally, we&#39;ll update the staging and production environments on ECS.</p>
+
+<p><strong>Tools and Technologies</strong>: AWS Lambda and API Gateway</p>
+
+<h5 id="part-7">Part 7</h5>
+
+<p>In part 7, we&#39;ll refactor the <em>AWS Lambda</em> function to make it dynamic so it can be used with more than one exercise, introduce <em>type checking</em> on the client-side with <em>React PropTypes</em>, and update a number of components. We&#39;ll also introduce another new <em>Flask</em> service to manage scores. Again, we&#39;ll update the staging and production environments on ECS.</p>
+
+<p><strong>Tools and Technologies</strong>: AWS Lambda and ECS, PropTypes, and Flask</p>
+
+<p><br></p>
+
+<div>
+  <p><a class="waves-effect waves-light red darken-1 center-align btn-large" href="https://gum.co/flask">Purchase Now!</a></p>
+  <p><a href="https://testdriven.io/part-one-intro">Or, preview parts 1 through 3</a></p>
+</div>
+
+<p><br><hr><br></p>
+
+<p><em>Join our mailing list to be notified about updates and new releases.</em></p>
+
+<form action="//RealPython.us5.list-manage.com/subscribe/post?u=9fd10a451eec3ca6b2855ab2c&amp;id=801201b3a9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<div class="row">
+<div class="input-field col s6">
+<input placeholder="Enter your email..." id="first_name" type="email" name="EMAIL">
+</div>
+</div>
+<div class="row">
+<div class="col s6">
+&nbsp;<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+<i class="material-icons right">send</i>
+</button>
+</div>
+</div>
+</form>
+
+<p><br></p>
+
+
+          
+
+
+          <div class="page-nav">
+            
+            
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+     <footer class="page-footer white">
+  <div class="container footer-container center-align">
+    <ul>
+      <li><small>Content by Michael Herman (michael@mherman.org)</small></li>
+      <li><small>&copy; Copyright 2017 <a href="http://testdriven.io">TestDriven.io</a></small></li>
+    </ul>
+  </div>
+</footer>
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100160465-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+  </body>
+</html>

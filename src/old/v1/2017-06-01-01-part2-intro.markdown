@@ -1,0 +1,59 @@
+---
+title: Introduction
+layout: post
+date: 2017-06-01 23:59:59
+permalink: part-two-intro
+intro: true
+part: 2
+lesson: 1
+share: true
+---
+
+In Part 2, we'll split the project into three distinct projects. We'll also add *code coverage* and *continuous integration* testing to ensure that each service can be run and tested independently from the whole. Finally, we'll add *ReactJS* to the client-side.
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Structure</span>
+
+1. *flask-microservices-main* - Docker Compose files, Nginx, admin scripts
+1. *flask-microservices-users* - Flask app
+1. *flask-microservices-client* - client-side
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Objectives</span>
+
+By the end of this part, you should be able to...
+
+1. Manage services housed in multiple git repos from a single Docker Compose file
+1. Utilize a git repo as the "build context" for Docker Compose
+1. Run unit and integration tests with code coverage inside a Docker Container
+1. Work with each service independently without Docker
+1. Configure Travis CI for continuous integration testing
+1. Explain what React is
+1. Work with React running inside a Docker Container
+1. Create a Single Page Application with React components
+1. Use React props and state appropriately
+1. Manage the state of a React component via component lifecycle methods
+1. Pass environment variables to a Docker image at build time
+1. Use React controlled components to handle form submissions
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">App</span>
+
+<div style="text-align:left;">
+  <img src="/assets/img/testdriven-architecture.png" style="max-width: 100%; border:0; box-shadow: none;" alt="microservice architecture">
+</div>
+
+Check out the live app, running on EC2 - [http://testdriven-production-alb-484275327.us-east-1.elb.amazonaws.com](http://testdriven-production-alb-484275327.us-east-1.elb.amazonaws.com)
+
+You can also test out the following endpoints...
+
+| Endpoint    | HTTP Method | CRUD Method | Result          |
+|-------------|-------------|-------------|-----------------|
+| /users      | GET         | READ        | get all users   |
+| /users/:id  | GET         | READ        | get single user |
+| /users      | POST        | CREATE      | add a user      |
+
+> The `/users` POST endpoint is restricted as of Part 3.
+
+Grab the code:
+
+1. [flask-microservices-main](https://github.com/realpython/flask-microservices-main/releases/tag/part2)
+1. [flask-microservices-users](https://github.com/realpython/flask-microservices-users/releases/tag/part2)
+1. [flask-microservices-client](https://github.com/realpython/flask-microservices-client/releases/tag/part2)

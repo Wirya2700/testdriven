@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+    <title>Microservices with Docker, Flask, and React - Update Component</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+  <link
+    rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+  >
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  >
+  <link
+    rel="stylesheet"
+    href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  >
+  <link
+    href="//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="//fonts.googleapis.com/css?family=Lato:900,300"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="https://fonts.googleapis.com/css?family=Montserrat"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link href="/assets/css/styles.css?1515124024017421000" rel="stylesheet">
+  <script
+    src="//code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    type="text/javascript"
+    src="/assets/js/main.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://gumroad.com/js/gumroad.js"
+  ></script>
+</head>
+
+
+  <body>
+
+    <nav class="indigo darken-4">
+  <div class="nav-wrapper">
+    <a href="/" class="nav-logo-container left">
+      <img
+        class="nav-logo" src="/assets/img/test_driven_io_full_logo_white_text.svg" alt="testdriven.io"
+      />
+    </a>
+    <a href="/" class="brand-logo main-brand-logo center show-on-large hide-on-med-and-down">
+      Test Driven Development Courses
+    </a>
+    <!-- <a href="/" class="brand-logo main-brand-logo hide-on-large-only">
+      TDD Courses
+    </a> -->
+    <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/">Course</a></li>
+      <li><a href="/course-contents">Contents</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="/">Home</a></li>
+      <li><a href="/">Course</a></li>
+      <li><a href="/course-contents">Contents</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <br>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col m3 hide-on-small-and-down">
+  <br>
+  <div id="toc-block" class="collection hide-on-small-and-down">
+    <ul class="collapsible collapsible-accordion">
+      
+        
+          <li>
+            <h5 data-part="1" class="collapsible-header  waves-effect waves-teal">
+              Part 1
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-intro">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-microservices">
+                Microservices
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-app-overview">
+                App Overview
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-getting-started">
+                Getting Started
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-docker-config">
+                Docker Config
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-postgres-setup">
+                Postgres Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-test-setup">
+                Test Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-flask-blueprints">
+                Flask Blueprints
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>9.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-restful-routes">
+                RESTful Routes
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>10.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-deployment">
+                Deployment
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>11.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-jinja-templates">
+                Jinja Templates
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>12.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-workflow">
+                Workflow
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+          <li>
+            <h5 data-part="2" class="collapsible-header  waves-effect waves-teal">
+              Part 2
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-intro">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-code-coverage-and-quality">
+                Code Coverage and Quality
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-continuous-integration">
+                Continuous Integration
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-setup">
+                React Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-testing-react">
+                Testing React
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-forms">
+                React Forms
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-and-docker">
+                React and Docker
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-next-steps">
+                Next Steps
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+          <li>
+            <h5 data-part="3" class="collapsible-header  waves-effect waves-teal">
+              Part 3
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-into">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-flask-migrate">
+                Flask Migrate
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-flask-bcrypt">
+                Flask Bcrypt
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-jwt-setup">
+                JWT Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-auth-routes">
+                Auth Routes
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-router">
+                React Router
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-bootstrap">
+                React Bootstrap
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-auth-one">
+                React Authentication - part one
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>9.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-mocking-user-interaction">
+                Mocking User Interaction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>10.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-auth-two">
+                React Authentication - part two
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>11.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-authorization">
+                Authorization
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>12.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-update-component">
+                Update Component
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>13.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-update-docker">
+                Update Docker
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+    </div>
+  </li>
+    </ul>
+  </div>
+</div>
+
+
+        <div class="col m9 hide-on-small-and-down">
+
+          <h2>Update Component</h2>
+
+          
+            <h5>Part 3, Lesson 12</h5>
+
+            <div class="page-nav">
+              
+                <a class="prev btn left-align" href="https://testdriven.io/part-three-authorization">&laquo; Authorization</a>
+              
+              
+                <a class="next btn right-align" href="https://testdriven.io/part-three-update-docker">Update Docker &raquo;</a>
+              
+            </div>
+
+            
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - Update Component&amp;url=https%3A%2F%2Ftestdriven.io/part-three-update-component&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+            <br><br>
+
+          
+
+          <p>In this lesson, we&#39;ll refactor the <code>UsersList</code> and <code>UserStatus</code> components...</p>
+
+<hr>
+
+<h3 id="docker-machine">Docker Machine</h3>
+
+<p>Set <code>testdriven-dev</code> as the active Docker Machine:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-machine env testdriven-dev
+$ <span class="nb">eval</span> <span class="k">$(</span>docker-machine env testdriven-dev<span class="k">)</span>
+</code></pre></div>
+<p>Ensure the app is working in the browser, and then run the tests:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml <span class="se">\</span>
+  run users-service python manage.py <span class="nb">test</span>
+
+$ docker-compose -f docker-compose-dev.yml <span class="se">\</span>
+  run users-service flake8 project
+
+$ docker-compose -f docker-compose-dev.yml <span class="se">\</span>
+  run client npm <span class="nb">test</span> -- --verbose
+</code></pre></div>
+<h3 id="userslist">UsersList</h3>
+
+<p>Let&#39;s remove the add user form and display a Bootstrap-styled table of users...</p>
+
+<h4 id="remove-the-form">Remove the form</h4>
+
+<p>To remove the form, update <em>UsersList.jsx</em>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">UsersList</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">All</span> <span class="nx">Users</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+      <span class="o">&lt;</span><span class="nx">hr</span><span class="o">/&gt;&lt;</span><span class="nx">br</span><span class="o">/&gt;</span>
+      <span class="p">{</span>
+        <span class="nx">props</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">user</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">h4</span>
+              <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span>
+              <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;well&quot;</span>
+            <span class="o">&gt;</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">}</span>
+            <span class="o">&lt;</span><span class="err">/h4&gt;</span>
+          <span class="p">)</span>
+        <span class="p">})</span>
+      <span class="p">}</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">)</span>
+<span class="p">};</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">UsersList</span><span class="p">;</span>
+</code></pre></div>
+<p>Update the route in the <code>App</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">UsersList</span>
+    <span class="nx">users</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+</code></pre></div>
+<p>Make sure to remove the <code>AddUser</code> import at the top of the file, and then test it out in the browser:</p>
+
+<div style="text-align:left;">
+  <img src="/assets/img/course/03_react_refactor.png" style="max-width: 100%; border:0; box-shadow: none;" alt="react component refactor">
+</div>
+
+<p>What about the tests?</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml <span class="se">\</span>
+  run client npm <span class="nb">test</span> -- --verbose
+</code></pre></div>
+<p>You should see the snapshot test fail:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>✕ UsersList renders a snapshot properly
+</code></pre></div>
+<p>It should also spit out the diff to the terminal:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>FAIL  src/components/__tests__/UsersList.test.js
+ ● UsersList renders a snapshot properly
+
+   expect<span class="o">(</span>value<span class="o">)</span>.toMatchSnapshot<span class="o">()</span>
+
+   Received value does not match stored snapshot <span class="m">1</span>.
+
+   - Snapshot
+   + Received
+
+   @@ -1,6 +1,11 @@
+    &lt;div&gt;
+   +  &lt;h1&gt;
+   +    All Users
+   +  &lt;/h1&gt;
+   +  &lt;hr /&gt;
+   +  &lt;br /&gt;
+      &lt;h4
+        <span class="nv">className</span><span class="o">=</span><span class="s2">&quot;well&quot;</span>
+      &gt;
+        michael
+      &lt;/h4&gt;
+</code></pre></div>
+<p>Since this is expected, update the snapshot by pressing the <code>u</code> key:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>Watch Usage
+ › Press a to run all tests.
+ › Press u to update failing snapshots.
+ › Press p to filter by a filename regex pattern.
+ › Press t to filter by a <span class="nb">test</span> name regex pattern.
+ › Press q to quit watch mode.
+ › Press Enter to trigger a <span class="nb">test</span> run.
+</code></pre></div>
+<p>All tests should now pass. Before moving on, since <code>&lt;h1&gt;All Users&lt;/h1&gt;</code> is now part of the <code>UsersList</code> component, let&#39;s update the unit test:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;UsersList renders properly&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">UsersList</span> <span class="nx">users</span><span class="o">=</span><span class="p">{</span><span class="nx">users</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h4&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;All Users&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">className</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;well&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<h4 id="add-table">Add table</h4>
+
+<p>Next, let&#39;s use React-Bootstrap to add a <a href="https://react-bootstrap.github.io/components/table/">table</a> to the <code>UsersList</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Table</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-bootstrap&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">UsersList</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">All</span> <span class="nx">Users</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+      <span class="o">&lt;</span><span class="nx">hr</span><span class="o">/&gt;&lt;</span><span class="nx">br</span><span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Table</span> <span class="nx">striped</span> <span class="nx">bordered</span> <span class="nx">condensed</span> <span class="nx">hover</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">thead</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">tr</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">User</span> <span class="nx">ID</span><span class="o">&lt;</span><span class="err">/th&gt;</span>
+            <span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">Email</span><span class="o">&lt;</span><span class="err">/th&gt;</span>
+            <span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">Username</span><span class="o">&lt;</span><span class="err">/th&gt;</span>
+            <span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">Active</span><span class="o">&lt;</span><span class="err">/th&gt;</span>
+            <span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">Admin</span><span class="o">&lt;</span><span class="err">/th&gt;</span>
+          <span class="o">&lt;</span><span class="err">/tr&gt;</span>
+        <span class="o">&lt;</span><span class="err">/thead&gt;</span>
+        <span class="o">&lt;</span><span class="nx">tbody</span><span class="o">&gt;</span>
+          <span class="p">{</span>
+            <span class="nx">props</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">user</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+              <span class="k">return</span> <span class="p">(</span>
+                <span class="o">&lt;</span><span class="nx">tr</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span>
+                  <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+                  <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+                  <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+                  <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nb">String</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">active</span><span class="p">)}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+                  <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nb">String</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">admin</span><span class="p">)}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+                <span class="o">&lt;</span><span class="err">/tr&gt;</span>
+              <span class="p">)</span>
+            <span class="p">})</span>
+          <span class="p">}</span>
+        <span class="o">&lt;</span><span class="err">/tbody&gt;</span>
+      <span class="o">&lt;</span><span class="err">/Table&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">)</span>
+<span class="p">};</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">UsersList</span><span class="p">;</span>
+</code></pre></div>
+<p>The rendered component should now look like:</p>
+
+<div style="text-align:left;">
+  <img src="/assets/img/course/03_react_refactor_users_table.png" style="max-width: 100%; border:0; box-shadow: none;" alt="react component refactor all users">
+</div>
+
+<p>Update the test:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;UsersList renders properly&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">UsersList</span> <span class="nx">users</span><span class="o">=</span><span class="p">{</span><span class="nx">users</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;All Users&#39;</span><span class="p">);</span>
+  <span class="c1">// table</span>
+  <span class="kr">const</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;Table&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">table</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">table</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">striped</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">table</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">bordered</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">table</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">condensed</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">table</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">hover</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="c1">// table head</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;thead&#39;</span><span class="p">).</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">th</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;th&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">th</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">th</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;User ID&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">th</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Email&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">th</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Username&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">th</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Active&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">th</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">4</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Admin&#39;</span><span class="p">);</span>
+  <span class="c1">// table body</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;tbody&#39;</span><span class="p">).</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;tbody &gt; tr&#39;</span><span class="p">).</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">td</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;tbody &gt; tr &gt; td&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">td</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">td</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">td</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">td</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">td</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">td</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">4</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;false&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Make sure to update the fixture as well:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s1">&#39;active&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s1">&#39;admin&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span><span class="o">:</span> <span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;username&#39;</span><span class="o">:</span> <span class="s1">&#39;michael&#39;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s1">&#39;active&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s1">&#39;admin&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span><span class="o">:</span> <span class="s1">&#39;michael@mherman.org&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;username&#39;</span><span class="o">:</span> <span class="s1">&#39;michaelherman&#39;</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Run the tests, making sure to update the snapshot test again:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>Snapshot Summary
+ › <span class="m">1</span> snapshot updated in <span class="m">1</span> <span class="nb">test</span> suite.
+
+Test Suites: <span class="m">7</span> passed, <span class="m">7</span> total
+Tests:       <span class="m">19</span> passed, <span class="m">19</span> total
+Snapshots:   <span class="m">1</span> updated, <span class="m">6</span> passed, <span class="m">7</span> total
+Time:        <span class="m">5</span>.178s, estimated 10s
+Ran all <span class="nb">test</span> suites.
+</code></pre></div>
+<h3 id="userstatus">UserStatus</h3>
+
+<p>Next, let&#39;s add the <code>active</code> and <code>admin</code> properties to the <code>UserStatus</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">class</span> <span class="nx">UserStatus</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">active</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">admin</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+    <span class="p">};</span>
+  <span class="p">};</span>
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getUserStatus</span><span class="p">();</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  <span class="nx">getUserStatus</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_USERS_SERVICE_URL</span><span class="si">}</span><span class="sb">/auth/status`</span><span class="p">,</span>
+      <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span>
+      <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="nx">Authorization</span><span class="o">:</span> <span class="sb">`Bearer </span><span class="si">${</span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">authToken</span><span class="si">}</span><span class="sb">`</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="nx">axios</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+        <span class="nx">email</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+        <span class="nx">id</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+        <span class="nx">username</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+        <span class="nx">active</span><span class="o">:</span> <span class="nb">String</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">active</span><span class="p">),</span>
+        <span class="nx">admin</span><span class="o">:</span> <span class="nb">String</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">admin</span><span class="p">),</span>
+      <span class="p">})</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span> <span class="p">});</span>
+  <span class="p">};</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">You</span> <span class="nx">must</span> <span class="nx">be</span> <span class="nx">logged</span> <span class="k">in</span> <span class="nx">to</span> <span class="nx">view</span> <span class="k">this</span><span class="p">.</span> <span class="nx">Click</span> <span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="o">&gt;</span><span class="nx">here</span><span class="o">&lt;</span><span class="err">/Link&gt; to log back in.&lt;/p&gt;</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">User</span> <span class="nx">ID</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.id}&lt;/li&gt;</span>
+          <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Email</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.email}&lt;/li&gt;</span>
+          <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Username</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.username}&lt;/li&gt;</span>
+          <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Active</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.active}&lt;/li&gt;</span>
+          <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Admin</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.admin}&lt;/li&gt;</span>
+        <span class="o">&lt;</span><span class="err">/ul&gt;</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">)</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div>
+<blockquote>
+<p>We&#39;ll look at how to test this one in a future lesson.</p>
+</blockquote>
+
+<p>That&#39;s it. Short lesson. Make sure the tests still pass.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>Test Suites: <span class="m">7</span> passed, <span class="m">7</span> total
+Tests:       <span class="m">19</span> passed, <span class="m">19</span> total
+Snapshots:   <span class="m">7</span> passed, <span class="m">7</span> total
+Time:        <span class="m">9</span>.111s
+Ran all <span class="nb">test</span> suites.
+</code></pre></div>
+<p>Commit you code.</p>
+
+<blockquote>
+<p>You may have noticed that we are not handling errors on the client. We&#39;ll tackle that in an upcoming lesson!</p>
+</blockquote>
+
+
+          <div class="page-nav">
+            
+              <a class="prev btn left-align" href="https://testdriven.io/part-three-authorization">&laquo; Authorization</a>
+            
+            
+              <a class="next btn right-align" href="https://testdriven.io/part-three-update-docker">Update Docker &raquo;</a>
+            
+          </div>
+
+          
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - Update Component&amp;url=https%3A%2F%2Ftestdriven.io/part-three-update-component&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+        </div>
+
+        <div class="hide-on-med-and-up">
+
+          <h2>Update Component</h2>
+
+          <p>In this lesson, we&#39;ll refactor the <code>UsersList</code> and <code>UserStatus</code> components...</p>
+
+<hr>
+
+<h3 id="docker-machine">Docker Machine</h3>
+
+<p>Set <code>testdriven-dev</code> as the active Docker Machine:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-machine env testdriven-dev
+$ <span class="nb">eval</span> <span class="k">$(</span>docker-machine env testdriven-dev<span class="k">)</span>
+</code></pre></div>
+<p>Ensure the app is working in the browser, and then run the tests:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml <span class="se">\</span>
+  run users-service python manage.py <span class="nb">test</span>
+
+$ docker-compose -f docker-compose-dev.yml <span class="se">\</span>
+  run users-service flake8 project
+
+$ docker-compose -f docker-compose-dev.yml <span class="se">\</span>
+  run client npm <span class="nb">test</span> -- --verbose
+</code></pre></div>
+<h3 id="userslist">UsersList</h3>
+
+<p>Let&#39;s remove the add user form and display a Bootstrap-styled table of users...</p>
+
+<h4 id="remove-the-form">Remove the form</h4>
+
+<p>To remove the form, update <em>UsersList.jsx</em>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">UsersList</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">All</span> <span class="nx">Users</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+      <span class="o">&lt;</span><span class="nx">hr</span><span class="o">/&gt;&lt;</span><span class="nx">br</span><span class="o">/&gt;</span>
+      <span class="p">{</span>
+        <span class="nx">props</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">user</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">h4</span>
+              <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span>
+              <span class="nx">className</span><span class="o">=</span><span class="s2">&quot;well&quot;</span>
+            <span class="o">&gt;</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">}</span>
+            <span class="o">&lt;</span><span class="err">/h4&gt;</span>
+          <span class="p">)</span>
+        <span class="p">})</span>
+      <span class="p">}</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">)</span>
+<span class="p">};</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">UsersList</span><span class="p">;</span>
+</code></pre></div>
+<p>Update the route in the <code>App</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">UsersList</span>
+    <span class="nx">users</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">users</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+</code></pre></div>
+<p>Make sure to remove the <code>AddUser</code> import at the top of the file, and then test it out in the browser:</p>
+
+<div style="text-align:left;">
+  <img src="/assets/img/course/03_react_refactor.png" style="max-width: 100%; border:0; box-shadow: none;" alt="react component refactor">
+</div>
+
+<p>What about the tests?</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>$ docker-compose -f docker-compose-dev.yml <span class="se">\</span>
+  run client npm <span class="nb">test</span> -- --verbose
+</code></pre></div>
+<p>You should see the snapshot test fail:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>✕ UsersList renders a snapshot properly
+</code></pre></div>
+<p>It should also spit out the diff to the terminal:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>FAIL  src/components/__tests__/UsersList.test.js
+ ● UsersList renders a snapshot properly
+
+   expect<span class="o">(</span>value<span class="o">)</span>.toMatchSnapshot<span class="o">()</span>
+
+   Received value does not match stored snapshot <span class="m">1</span>.
+
+   - Snapshot
+   + Received
+
+   @@ -1,6 +1,11 @@
+    &lt;div&gt;
+   +  &lt;h1&gt;
+   +    All Users
+   +  &lt;/h1&gt;
+   +  &lt;hr /&gt;
+   +  &lt;br /&gt;
+      &lt;h4
+        <span class="nv">className</span><span class="o">=</span><span class="s2">&quot;well&quot;</span>
+      &gt;
+        michael
+      &lt;/h4&gt;
+</code></pre></div>
+<p>Since this is expected, update the snapshot by pressing the <code>u</code> key:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>Watch Usage
+ › Press a to run all tests.
+ › Press u to update failing snapshots.
+ › Press p to filter by a filename regex pattern.
+ › Press t to filter by a <span class="nb">test</span> name regex pattern.
+ › Press q to quit watch mode.
+ › Press Enter to trigger a <span class="nb">test</span> run.
+</code></pre></div>
+<p>All tests should now pass. Before moving on, since <code>&lt;h1&gt;All Users&lt;/h1&gt;</code> is now part of the <code>UsersList</code> component, let&#39;s update the unit test:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;UsersList renders properly&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">UsersList</span> <span class="nx">users</span><span class="o">=</span><span class="p">{</span><span class="nx">users</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h4&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;All Users&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">className</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;well&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<h4 id="add-table">Add table</h4>
+
+<p>Next, let&#39;s use React-Bootstrap to add a <a href="https://react-bootstrap.github.io/components/table/">table</a> to the <code>UsersList</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">Table</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-bootstrap&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">UsersList</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">All</span> <span class="nx">Users</span><span class="o">&lt;</span><span class="err">/h1&gt;</span>
+      <span class="o">&lt;</span><span class="nx">hr</span><span class="o">/&gt;&lt;</span><span class="nx">br</span><span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Table</span> <span class="nx">striped</span> <span class="nx">bordered</span> <span class="nx">condensed</span> <span class="nx">hover</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">thead</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">tr</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">User</span> <span class="nx">ID</span><span class="o">&lt;</span><span class="err">/th&gt;</span>
+            <span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">Email</span><span class="o">&lt;</span><span class="err">/th&gt;</span>
+            <span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">Username</span><span class="o">&lt;</span><span class="err">/th&gt;</span>
+            <span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">Active</span><span class="o">&lt;</span><span class="err">/th&gt;</span>
+            <span class="o">&lt;</span><span class="nx">th</span><span class="o">&gt;</span><span class="nx">Admin</span><span class="o">&lt;</span><span class="err">/th&gt;</span>
+          <span class="o">&lt;</span><span class="err">/tr&gt;</span>
+        <span class="o">&lt;</span><span class="err">/thead&gt;</span>
+        <span class="o">&lt;</span><span class="nx">tbody</span><span class="o">&gt;</span>
+          <span class="p">{</span>
+            <span class="nx">props</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">user</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+              <span class="k">return</span> <span class="p">(</span>
+                <span class="o">&lt;</span><span class="nx">tr</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&gt;</span>
+                  <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+                  <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+                  <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+                  <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nb">String</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">active</span><span class="p">)}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+                  <span class="o">&lt;</span><span class="nx">td</span><span class="o">&gt;</span><span class="p">{</span><span class="nb">String</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">admin</span><span class="p">)}</span><span class="o">&lt;</span><span class="err">/td&gt;</span>
+                <span class="o">&lt;</span><span class="err">/tr&gt;</span>
+              <span class="p">)</span>
+            <span class="p">})</span>
+          <span class="p">}</span>
+        <span class="o">&lt;</span><span class="err">/tbody&gt;</span>
+      <span class="o">&lt;</span><span class="err">/Table&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">)</span>
+<span class="p">};</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">UsersList</span><span class="p">;</span>
+</code></pre></div>
+<p>The rendered component should now look like:</p>
+
+<div style="text-align:left;">
+  <img src="/assets/img/course/03_react_refactor_users_table.png" style="max-width: 100%; border:0; box-shadow: none;" alt="react component refactor all users">
+</div>
+
+<p>Update the test:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;UsersList renders properly&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">wrapper</span> <span class="o">=</span> <span class="nx">shallow</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">UsersList</span> <span class="nx">users</span><span class="o">=</span><span class="p">{</span><span class="nx">users</span><span class="p">}</span><span class="o">/&gt;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">).</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;All Users&#39;</span><span class="p">);</span>
+  <span class="c1">// table</span>
+  <span class="kr">const</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;Table&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">table</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">table</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">striped</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">table</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">bordered</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">table</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">condensed</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">table</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">hover</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="c1">// table head</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;thead&#39;</span><span class="p">).</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">th</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;th&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">th</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">th</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;User ID&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">th</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Email&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">th</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Username&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">th</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Active&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">th</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">4</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;Admin&#39;</span><span class="p">);</span>
+  <span class="c1">// table body</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;tbody&#39;</span><span class="p">).</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;tbody &gt; tr&#39;</span><span class="p">).</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">td</span> <span class="o">=</span> <span class="nx">wrapper</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;tbody &gt; tr &gt; td&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">td</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">td</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">td</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">td</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;michael&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">td</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">);</span>
+  <span class="nx">expect</span><span class="p">(</span><span class="nx">td</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">4</span><span class="p">).</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="s1">&#39;false&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Make sure to update the fixture as well:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">const</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s1">&#39;active&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s1">&#39;admin&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span><span class="o">:</span> <span class="s1">&#39;michael@realpython.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;username&#39;</span><span class="o">:</span> <span class="s1">&#39;michael&#39;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s1">&#39;active&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s1">&#39;admin&#39;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span><span class="o">:</span> <span class="s1">&#39;michael@mherman.org&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;username&#39;</span><span class="o">:</span> <span class="s1">&#39;michaelherman&#39;</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>Run the tests, making sure to update the snapshot test again:</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>Snapshot Summary
+ › <span class="m">1</span> snapshot updated in <span class="m">1</span> <span class="nb">test</span> suite.
+
+Test Suites: <span class="m">7</span> passed, <span class="m">7</span> total
+Tests:       <span class="m">19</span> passed, <span class="m">19</span> total
+Snapshots:   <span class="m">1</span> updated, <span class="m">6</span> passed, <span class="m">7</span> total
+Time:        <span class="m">5</span>.178s, estimated 10s
+Ran all <span class="nb">test</span> suites.
+</code></pre></div>
+<h3 id="userstatus">UserStatus</h3>
+
+<p>Next, let&#39;s add the <code>active</code> and <code>admin</code> properties to the <code>UserStatus</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">class</span> <span class="nx">UserStatus</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">active</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">admin</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+    <span class="p">};</span>
+  <span class="p">};</span>
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">getUserStatus</span><span class="p">();</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+  <span class="nx">getUserStatus</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_USERS_SERVICE_URL</span><span class="si">}</span><span class="sb">/auth/status`</span><span class="p">,</span>
+      <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span>
+      <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="nx">Authorization</span><span class="o">:</span> <span class="sb">`Bearer </span><span class="si">${</span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">authToken</span><span class="si">}</span><span class="sb">`</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="nx">axios</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+        <span class="nx">email</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+        <span class="nx">id</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+        <span class="nx">username</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+        <span class="nx">active</span><span class="o">:</span> <span class="nb">String</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">active</span><span class="p">),</span>
+        <span class="nx">admin</span><span class="o">:</span> <span class="nb">String</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">admin</span><span class="p">),</span>
+      <span class="p">})</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span> <span class="p">});</span>
+  <span class="p">};</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">You</span> <span class="nx">must</span> <span class="nx">be</span> <span class="nx">logged</span> <span class="k">in</span> <span class="nx">to</span> <span class="nx">view</span> <span class="k">this</span><span class="p">.</span> <span class="nx">Click</span> <span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="o">&gt;</span><span class="nx">here</span><span class="o">&lt;</span><span class="err">/Link&gt; to log back in.&lt;/p&gt;</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">User</span> <span class="nx">ID</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.id}&lt;/li&gt;</span>
+          <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Email</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.email}&lt;/li&gt;</span>
+          <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Username</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.username}&lt;/li&gt;</span>
+          <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Active</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.active}&lt;/li&gt;</span>
+          <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Admin</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.admin}&lt;/li&gt;</span>
+        <span class="o">&lt;</span><span class="err">/ul&gt;</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">)</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div>
+<blockquote>
+<p>We&#39;ll look at how to test this one in a future lesson.</p>
+</blockquote>
+
+<p>That&#39;s it. Short lesson. Make sure the tests still pass.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span></span>Test Suites: <span class="m">7</span> passed, <span class="m">7</span> total
+Tests:       <span class="m">19</span> passed, <span class="m">19</span> total
+Snapshots:   <span class="m">7</span> passed, <span class="m">7</span> total
+Time:        <span class="m">9</span>.111s
+Ran all <span class="nb">test</span> suites.
+</code></pre></div>
+<p>Commit you code.</p>
+
+<blockquote>
+<p>You may have noticed that we are not handling errors on the client. We&#39;ll tackle that in an upcoming lesson!</p>
+</blockquote>
+
+
+          
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - Update Component&amp;url=https%3A%2F%2Ftestdriven.io/part-three-update-component&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+          <div class="page-nav">
+            
+              <a class="prev btn left-align" href="https://testdriven.io/part-three-authorization">&laquo; Authorization</a>
+            
+            
+              <a class="next btn right-align" href="https://testdriven.io/part-three-update-docker">Update Docker &raquo;</a>
+            
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+     <footer class="page-footer white">
+  <div class="container footer-container center-align">
+    <ul>
+      <li><small>Content by Michael Herman (michael@mherman.org)</small></li>
+      <li><small>&copy; Copyright 2017 <a href="http://testdriven.io">TestDriven.io</a></small></li>
+    </ul>
+  </div>
+</footer>
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100160465-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+  </body>
+</html>

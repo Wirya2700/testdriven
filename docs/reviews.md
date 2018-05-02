@@ -1,0 +1,2 @@
+1. It is certainly the most difficult course I have taken.
+1. As a practicing anesthesiologist and a computer geek from way back, I’ve had a number of projects (without confidential data, of course) that I’ve been trying to get off the ground. But I kept going around in circles with Docker, Flask & React. Michael’s book is well written, clear and has given me a great base of knowledge and best practice in regards to really getting my projects done. Best of all, it’s given me the confidence to just get on and get coding. Thanks!! (Ross Scott-Weekly <rscottweekly@gmail.com>)

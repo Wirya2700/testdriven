@@ -1,0 +1,201 @@
+---
+layout: post
+title: Course Contents
+permalink: course-contents/
+---
+
+<h3></h3>
+<hr><br>
+
+
+{% for post in site.posts reversed %}
+  {% if post.intro %}
+    <h5>Part {{post.part}}</h5>
+    <p>{{ post.full_intro }}</p>
+    <ul class="lessons-list">
+  {% endif %}
+      <li class="collection-li-contents">
+        <span>{{ post.lesson }}.&nbsp;</span>
+        <span>
+          <a
+            class="collection-item"
+            href="{{ site.url }}{{ post.url }}"
+          >{{ post.title }}</a>
+        </span>
+      </li>
+
+{% endfor %}
+</ul>
+
+<br>
+
+<div>
+  <p>Looking for parts 4 through 7?</p>
+  <p><a class="waves-effect waves-light red darken-1 center-align btn-large" href="https://gum.co/flask">Purchase Now!</a></p>
+</div>
+
+<br>
+
+<h5>Part 4</h5>
+<ul class="lessons-list">
+  <li class="collection-li-contents">
+    <span>1.&nbsp;</span>
+    <span>End-to-End Test Setup</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>2.&nbsp;</span>
+    <span>End-to-End Test Specs</span></li>
+  <li class="collection-li-contents">
+    <span>3.&nbsp;</span>
+    <span>React Component Refactor</span></li>
+  <li class="collection-li-contents">
+    <span>4.&nbsp;</span>
+    <span>React Form Validation</span></li>
+  <li class="collection-li-contents">
+    <span>5.&nbsp;</span>
+    <span>React Flash Messaging</span></li>
+  <li class="collection-li-contents">
+    <span>6.&nbsp;</span>
+    <span>Swagger Setup</span></li>
+  <li class="collection-li-contents">
+    <span>7.&nbsp;</span>
+    <span>Staging Environment</span></li>
+  <li class="collection-li-contents">
+    <span>8.&nbsp;</span>
+    <span>Production Environment</span></li>
+  <li class="collection-li-contents">
+    <span>9.&nbsp;</span>
+    <span>Workflow</span></li>
+</ul>
+
+<h5>Part 5</h5>
+<ul class="lessons-list">
+  <li class="collection-li-contents">
+    <span>1.&nbsp;</span>
+    <span>Container Orchestration</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>2.&nbsp;</span>
+    <span>EC2 Container Regist</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>3.&nbsp;</span>
+    <span>Elastic Load Balancer</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>4.&nbsp;</span>
+    <span>EC2 Container Servi</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>5.&nbsp;</span>
+    <span>ECS Staging</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>6.&nbsp;</span>
+    <span>Setting up RDS</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>7.&nbsp;</span>
+    <span>ECS Production Setup</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>8.&nbsp;</span>
+    <span>ECS Production Automation</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>9.&nbsp;</span>
+    <span>Workflow</span>
+  </li>
+</ul>
+
+<h5>Part 6</h5>
+<ul class="lessons-list">
+  <li class="collection-li-contents">
+    <span>1.&nbsp;</span>
+    <span>React Refactor</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>2.&nbsp;</span>
+    <span>React Ace Code Editor</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>3.&nbsp;</span>
+    <span>Exercises Service Setup</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>4.&nbsp;</span>
+    <span>Exercises Database</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>5.&nbsp;</span>
+    <span>Exercises API</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>6.&nbsp;</span>
+    <span>Code Evaluation with AWS Lambda</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>7.&nbsp;</span>
+    <span>Update Exercises Component</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>8.&nbsp;</span>
+    <span>ECS Staging</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>9.&nbsp;</span>
+    <span>ECS Production</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>10.&nbsp;</span>
+    <span>Scaling</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>11.&nbsp;</span>
+    <span>Workflow</span>
+  </li>
+</ul>
+
+<h5>Part 7</h5>
+<ul class="lessons-list">
+  <li class="collection-li-contents">
+    <span>1.&nbsp;</span>
+    <span>Lambda Refactor</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>2.&nbsp;</span>
+    <span>Exercise Component</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>3.&nbsp;</span>
+    <span>AJAX Refactor</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>4.&nbsp;</span>
+    <span>Type Checking</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>5.&nbsp;</span>
+    <span>Scores Service</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>6.&nbsp;</span>
+    <span>Exercises Component Refactor</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>7.&nbsp;</span>
+    <span>Updated Users List</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>8.&nbsp;</span>
+    <span>ECS Staging Update</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>9.&nbsp;</span>
+    <span>ECS Prod Update</span>
+  </li>
+  <li class="collection-li-contents">
+    <span>10.&nbsp;</span>
+    <span>Next Steps</span>
+  </li>
+</ul>

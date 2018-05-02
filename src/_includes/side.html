@@ -1,0 +1,28 @@
+<div class="col m3 hide-on-small-and-down">
+  <br>
+  <div id="toc-block" class="collection hide-on-small-and-down">
+    <ul class="collapsible collapsible-accordion">
+      {% for post in site.posts reversed %}
+        {% if post.intro %}
+          <li>
+            <h5 data-part="{{post.part}}" class="collapsible-header  waves-effect waves-teal">
+              Part {{post.part}}
+            </h5>
+            <div class="collapsible-body">
+        {% endif %}
+        <ul>
+          <li class="collection-li">
+            <span>{{ post.lesson }}.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="{{site.url}}{{ post.url }}">
+                {{ post.title }}
+              </a>
+            </span>
+          </li>
+        </ul>
+      {% endfor %}
+    </div>
+  </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+---
+title: Introduction
+layout: post
+date: 2017-06-11 23:59:59
+permalink: part-three-intro
+intro: true
+part: 3
+lesson: 1
+share: true
+---
+
+In Part 3, we'll add *database migrations* along with *password hashing* in order to implement *token-based authentication* to the users service with JSON Web Tokens (JWTs). We'll then turn our attention to the client and add *React Router* to the React app to enable client-side routing along with client-side authentication.
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Objectives</span>
+
+By the end of part 3, you should be able to...
+
+1. Use Flask Migrate to handle database migrations
+1. Configure Flask Bcrypt for password hashing
+1. Implement user authentication with JWTs
+1. Write tests to create and verify JWTs and user authentication
+1. Use React Router to define client-side routes in React
+1. Build UI components with React Bootstrap
+1. Explain the difference between user authentication and authorization
+1. Implement user authorization
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">App</span>
+
+<div style="text-align:left;">
+  <img src="/assets/img/flask-tdd-logo-part3.png" style="max-width: 100%; border:0; box-shadow: none;" alt="flask tdd logo">
+</div>
+
+Check out the live app, running on EC2 - [http://testdriven-production-alb-484275327.us-east-1.elb.amazonaws.com](http://testdriven-production-alb-484275327.us-east-1.elb.amazonaws.com)
+
+You can also test out the following endpoints...
+
+| Endpoint        | HTTP Method | Authenticated?  | Result            |
+|-----------------|-------------|-----------------|-------------------|
+| /auth/register  | POST        | No              | register user     |
+| /auth/login     | POST        | No              | log in user       |
+| /auth/logout    | GET         | Yes             | log out user      |
+| /auth/status    | GET         | Yes             | check user status |
+| /users          | GET         | No              | get all users     |
+| /users/:id      | GET         | No              | get single user   |
+| /users          | POST        | Yes (admin)     | add a user        |
+| /ping           | GET         | No              | sanity check      |
+
+Grab the code:
+
+1. [flask-microservices-main](https://github.com/realpython/flask-microservices-main/releases/tag/part3)
+1. [flask-microservices-users](https://github.com/realpython/flask-microservices-users/releases/tag/part3)
+1. [flask-microservices-client](https://github.com/realpython/flask-microservices-client/releases/tag/part3)

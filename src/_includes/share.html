@@ -1,0 +1,4 @@
+{% if page.share %}
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - {{ page.title }}&amp;url={{ site.url | cgi_escape }}/{{ page.permalink | cgi_escape }}&amp;via={{ site.twitter }}" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+{% endif %}

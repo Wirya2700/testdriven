@@ -1,0 +1,65 @@
+---
+title: Introduction
+layout: post
+date: 2017-08-27 23:59:59
+permalink: part-six-intro
+intro: true
+part: 6
+lesson: 1
+share: true
+---
+
+In the final part, we'll focus our attention on adding a new *Flask* service, with two RESTful-resources, to evaluate user-submitted code. Along the way, we'll tie in *AWS Lambda* and *API Gateway* and spend a bit of time refactoring *React* and the *end-to-end* test suite. Finally, we'll update the staging and production environments on ECS.
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Objectives</span>
+
+By the end of part 6, you should be able to...
+
+1. Practice test driven development while refactoring code
+1. Integrate a new microservice in the existing set of services
+1. Explain what AWS Lambda and API Gateway are and why would would want to use them
+1. Develop a RESTful API endpoint with API Gateway that triggers an AWS Lambda function
+1. Update the staging and production environments on Amazon ECS
+
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">App</span>
+
+<div style="text-align:left;">
+  <img src="/assets/img/testdriven-architecture-part6.png" style="max-width: 100%; border:0; box-shadow: none;" alt="microservice architecture">
+</div>
+
+Check out the live app, running on EC2 -
+
+1. [Production](http://testdriven-production-alb-484275327.us-east-1.elb.amazonaws.com)
+1. [Staging](http://testdriven-staging-alb-1378944177.us-east-1.elb.amazonaws.com)
+
+You can also test out the following endpoints...
+
+| Endpoint        | HTTP Method | Authenticated?  | Result            |
+|-----------------|-------------|-----------------|-------------------|
+| /auth/register  | POST        | No              | register user     |
+| /auth/login     | POST        | No              | log in user       |
+| /auth/logout    | GET         | Yes             | log out user      |
+| /auth/status    | GET         | Yes             | check user status |
+| /users          | GET         | No              | get all users     |
+| /users/:id      | GET         | No              | get single user   |
+| /users          | POST        | Yes (admin)     | add a user        |
+| /ping           | GET         | No              | sanity check      |
+| /health         | GET         | No              | sanity check      |
+| /scores              | GET    | No             | get all scores              |
+| /scores/:id          | GET    | No             | get single score            |
+| /scores/user         | GET    | Yes            | get all scores by user id   |
+| /scores/user/:id     | GET    | Yes            | get single score by user id |
+| /scores              | POST   | Yes            | add a score                 |
+| /scores/:id          | PUT    | Yes            | update a score              |
+| /scores          | PATCH  | Yes            | upsert (update or add if the score does not exist)             |
+| /exercises | GET         | No             | get all exercises |
+| /exercises | POST        | Yes (admin)    | add an exercise   |
+
+Grab the code:
+
+1. [flask-microservices-main](https://github.com/realpython/flask-microservices-main)
+1. [flask-microservices-users](https://github.com/realpython/flask-microservices-users)
+1. [flask-microservices-client](https://github.com/realpython/flask-microservices-client)
+1. [flask-microservices-swagger](https://github.com/realpython/flask-microservices-swagger)
+1. [flask-microservices-eval](https://github.com/realpython/flask-microservices-eval)

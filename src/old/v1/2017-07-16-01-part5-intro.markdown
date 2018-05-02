@@ -1,0 +1,54 @@
+---
+title: Introduction
+layout: post
+date: 2017-07-16 23:59:59
+permalink: part-five-intro
+intro: true
+part: 5
+lesson: 1
+share: true
+---
+
+In Part 5, we'll dive into *container orchestration* with [Amazon ECS](https://aws.amazon.com/ecs/) as we move our staging and production environments to a more scaleable infrastructure. We'll also add the [Docker Hub](https://docs.docker.com/docker-hub/) *image registry* and [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/). Finally, we'll utilize Amazon's [Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/) for *load balancing* and Amazon's [Relational Database Service](https://aws.amazon.com/rds/) for *data persistence*.
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Objectives</span>
+
+By the end of part 5, you should be able to...
+
+1. Integrate [Docker Hub](https://docs.docker.com/docker-hub/), an image registry, into the continuous integration process
+1. Configure [Amazon ECS](https://aws.amazon.com/ecs/) and [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/) to manage container orchestration for our staging and production environments
+1. Set up [Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/) to manage service discovery, run status health checks against each service, enable zero-downtime deployment
+1. Add [Relational Database Service](https://aws.amazon.com/rds/), for *data persistence*, to our production stack
+
+---
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">App</span>
+
+<div style="text-align:left;">
+  <img src="/assets/img/testdriven-architecture-part4.png" style="max-width: 100%; border:0; box-shadow: none;" alt="microservice architecture">
+</div>
+
+Check out the live app, running on EC2 -
+
+1. [Production](http://testdriven-production-alb-484275327.us-east-1.elb.amazonaws.com)
+1. [Staging](http://testdriven-staging-alb-1378944177.us-east-1.elb.amazonaws.com)
+
+You can also test out the following endpoints...
+
+| Endpoint        | HTTP Method | Authenticated?  | Result            |
+|-----------------|-------------|-----------------|-------------------|
+| /auth/register  | POST        | No              | register user     |
+| /auth/login     | POST        | No              | log in user       |
+| /auth/logout    | GET         | Yes             | log out user      |
+| /auth/status    | GET         | Yes             | check user status |
+| /users          | GET         | No              | get all users     |
+| /users/:id      | GET         | No              | get single user   |
+| /users          | POST        | Yes (admin)     | add a user        |
+| /ping           | GET         | No              | sanity check      |
+
+Grab the code:
+
+1. [flask-microservices-main](https://github.com/realpython/flask-microservices-main/releases/tag/part5)
+1. [flask-microservices-users](https://github.com/realpython/flask-microservices-users)
+1. [flask-microservices-client](https://github.com/realpython/flask-microservices-client/releases/tag/part5)
+1. [flask-microservices-swagger](https://github.com/realpython/flask-microservices-swagger)

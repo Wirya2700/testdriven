@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+    <title>Microservices with Docker, Flask, and React - React Authentication - part two</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+  <link
+    rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+  >
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  >
+  <link
+    rel="stylesheet"
+    href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  >
+  <link
+    href="//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="//fonts.googleapis.com/css?family=Lato:900,300"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="https://fonts.googleapis.com/css?family=Montserrat"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link
+    href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css"
+    rel="stylesheet"
+    type="text/css"
+  >
+  <link href="/assets/css/styles.css?1515124024017421000" rel="stylesheet">
+  <script
+    src="//code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    type="text/javascript"
+    src="/assets/js/main.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://gumroad.com/js/gumroad.js"
+  ></script>
+</head>
+
+
+  <body>
+
+    <nav class="indigo darken-4">
+  <div class="nav-wrapper">
+    <a href="/" class="nav-logo-container left">
+      <img
+        class="nav-logo" src="/assets/img/test_driven_io_full_logo_white_text.svg" alt="testdriven.io"
+      />
+    </a>
+    <a href="/" class="brand-logo main-brand-logo center show-on-large hide-on-med-and-down">
+      Test Driven Development Courses
+    </a>
+    <!-- <a href="/" class="brand-logo main-brand-logo hide-on-large-only">
+      TDD Courses
+    </a> -->
+    <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/">Course</a></li>
+      <li><a href="/course-contents">Contents</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="/">Home</a></li>
+      <li><a href="/">Course</a></li>
+      <li><a href="/course-contents">Contents</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <br>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col m3 hide-on-small-and-down">
+  <br>
+  <div id="toc-block" class="collection hide-on-small-and-down">
+    <ul class="collapsible collapsible-accordion">
+      
+        
+          <li>
+            <h5 data-part="1" class="collapsible-header  waves-effect waves-teal">
+              Part 1
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-intro">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-microservices">
+                Microservices
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-app-overview">
+                App Overview
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-getting-started">
+                Getting Started
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-docker-config">
+                Docker Config
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-postgres-setup">
+                Postgres Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-test-setup">
+                Test Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-flask-blueprints">
+                Flask Blueprints
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>9.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-restful-routes">
+                RESTful Routes
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>10.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-deployment">
+                Deployment
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>11.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-jinja-templates">
+                Jinja Templates
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>12.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-one-workflow">
+                Workflow
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+          <li>
+            <h5 data-part="2" class="collapsible-header  waves-effect waves-teal">
+              Part 2
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-intro">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-code-coverage-and-quality">
+                Code Coverage and Quality
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-continuous-integration">
+                Continuous Integration
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-setup">
+                React Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-testing-react">
+                Testing React
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-forms">
+                React Forms
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-react-and-docker">
+                React and Docker
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-two-next-steps">
+                Next Steps
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+          <li>
+            <h5 data-part="3" class="collapsible-header  waves-effect waves-teal">
+              Part 3
+            </h5>
+            <div class="collapsible-body">
+        
+        <ul>
+          <li class="collection-li">
+            <span>1.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-into">
+                Introduction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>2.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-flask-migrate">
+                Flask Migrate
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>3.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-flask-bcrypt">
+                Flask Bcrypt
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>4.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-jwt-setup">
+                JWT Setup
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>5.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-auth-routes">
+                Auth Routes
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>6.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-router">
+                React Router
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>7.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-bootstrap">
+                React Bootstrap
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>8.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-auth-one">
+                React Authentication - part one
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>9.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-mocking-user-interaction">
+                Mocking User Interaction
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>10.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-react-auth-two">
+                React Authentication - part two
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>11.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-authorization">
+                Authorization
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>12.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-update-component">
+                Update Component
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+        
+        <ul>
+          <li class="collection-li">
+            <span>13.&nbsp;</span>
+            <span>
+              <a class="collection-item" href="https://testdriven.io/part-three-update-docker">
+                Update Docker
+              </a>
+            </span>
+          </li>
+        </ul>
+      
+    </div>
+  </li>
+    </ul>
+  </div>
+</div>
+
+
+        <div class="col m9 hide-on-small-and-down">
+
+          <h2>React Authentication - part two</h2>
+
+          
+            <h5>Part 3, Lesson 10</h5>
+
+            <div class="page-nav">
+              
+                <a class="prev btn left-align" href="https://testdriven.io/part-three-mocking-user-interaction">&laquo; Mocking User Interaction</a>
+              
+              
+                <a class="next btn right-align" href="https://testdriven.io/part-three-authorization">Authorization &raquo;</a>
+              
+            </div>
+
+            
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - React Authentication - part two&amp;url=https%3A%2F%2Ftestdriven.io/part-three-react-auth-two&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+            <br><br>
+
+          
+
+          <p>Moving right along, let&#39;s add some methods to handle a user signing up, logging in, and logging out...</p>
+
+<hr>
+
+<h3 id="user-status">User Status</h3>
+
+<p>For the <code>/status</code> link, we need to add a new component that displays the response from a call to <code>/auth/status</code> from the users service. <em>Remember</em>: You need to be authenticated to hit this end-point successfully. So, we will need to add the token to the header prior to sending the AJAX request.</p>
+
+<p>First, add a new component called <em>UserStatus.jsx</em>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">UserStatus</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+    <span class="p">};</span>
+  <span class="p">};</span>
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">getUserStatus</span><span class="p">();</span>
+  <span class="p">};</span>
+  <span class="nx">getUserStatus</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_USERS_SERVICE_URL</span><span class="si">}</span><span class="sb">/auth/status`</span><span class="p">,</span>
+      <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span>
+      <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="nx">Authorization</span><span class="o">:</span> <span class="sb">`Bearer </span><span class="si">${</span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">authToken</span><span class="si">}</span><span class="sb">`</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="nx">axios</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span> <span class="p">});</span>
+  <span class="p">};</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">test</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">)</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">UserStatus</span><span class="p">;</span>
+</code></pre></div>
+<p>Here, we used a stateful, class-based component to give the component its own internal state. Notice how we also included the header with the AJAX request.</p>
+
+<p>Import the component into <em>App.jsx</em>, and then add a new route:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/status&#39;</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">UserStatus</span><span class="p">}</span><span class="o">/&gt;</span>
+</code></pre></div>
+<p>Test this out first when you&#39;re not logged in. You should see a 401 error in the JavaScript console. Try again when you are logged in. You should see an object with the keys <code>active</code>, <code>email</code>, <code>id</code>, and <code>username</code>.</p>
+
+<p>To add the values to the component, update the <code>.then</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">username</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>Also, update the <code>render()</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">User</span> <span class="nx">ID</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.id}&lt;/li&gt;</span>
+        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Email</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.email}&lt;/li&gt;</span>
+        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Username</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.username}&lt;/li&gt;</span>
+      <span class="o">&lt;</span><span class="err">/ul&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">)</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Test it out.</p>
+
+<h3 id="update-navbar">Update Navbar</h3>
+
+<p>Finally, let&#39;s make the following changes to the <code>Navbar</code>:</p>
+
+<ol>
+<li>When the user is logged in, the register and log in links should be hidden</li>
+<li>When the user is logged out, the log out and user status links should be hidden</li>
+</ol>
+
+<p>Update the <code>NavBar</code> component like so to show/hide based on the value of <code>isAuthenticated</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">const</span> <span class="nx">NavBar</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Navbar</span> <span class="nx">inverse</span> <span class="nx">collapseOnSelect</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">Navbar</span><span class="p">.</span><span class="nx">Header</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Navbar</span><span class="p">.</span><span class="nx">Brand</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
+      <span class="o">&lt;</span><span class="err">/Navbar.Brand&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Navbar</span><span class="p">.</span><span class="nx">Toggle</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="err">/Navbar.Header&gt;</span>
+    <span class="o">&lt;</span><span class="nx">Navbar</span><span class="p">.</span><span class="nx">Collapse</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Nav</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">LinkContainer</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">NavItem</span> <span class="nx">eventKey</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Home</span><span class="o">&lt;</span><span class="err">/NavItem&gt;</span>
+        <span class="o">&lt;</span><span class="err">/LinkContainer&gt;</span>
+        <span class="o">&lt;</span><span class="nx">LinkContainer</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/about&quot;</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">NavItem</span> <span class="nx">eventKey</span><span class="o">=</span><span class="p">{</span><span class="mi">2</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">About</span><span class="o">&lt;</span><span class="err">/NavItem&gt;</span>
+        <span class="o">&lt;</span><span class="err">/LinkContainer&gt;</span>
+        <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span> <span class="o">&amp;&amp;</span>
+          <span class="o">&lt;</span><span class="nx">LinkContainer</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/status&quot;</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">NavItem</span> <span class="nx">eventKey</span><span class="o">=</span><span class="p">{</span><span class="mi">3</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">User</span> <span class="nx">Status</span><span class="o">&lt;</span><span class="err">/NavItem&gt;</span>
+          <span class="o">&lt;</span><span class="err">/LinkContainer&gt;</span>
+        <span class="p">}</span>
+      <span class="o">&lt;</span><span class="err">/Nav&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Nav</span> <span class="nx">pullRight</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="o">!</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span> <span class="o">&amp;&amp;</span>
+          <span class="o">&lt;</span><span class="nx">LinkContainer</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/register&quot;</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">NavItem</span> <span class="nx">eventKey</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Register</span><span class="o">&lt;</span><span class="err">/NavItem&gt;</span>
+          <span class="o">&lt;</span><span class="err">/LinkContainer&gt;</span>
+        <span class="p">}</span>
+        <span class="p">{</span><span class="o">!</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span> <span class="o">&amp;&amp;</span>
+          <span class="o">&lt;</span><span class="nx">LinkContainer</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">NavItem</span> <span class="nx">eventKey</span><span class="o">=</span><span class="p">{</span><span class="mi">2</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Log</span> <span class="nx">In</span><span class="o">&lt;</span><span class="err">/NavItem&gt;</span>
+          <span class="o">&lt;</span><span class="err">/LinkContainer&gt;</span>
+        <span class="p">}</span>
+        <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span> <span class="o">&amp;&amp;</span>
+          <span class="o">&lt;</span><span class="nx">LinkContainer</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/logout&quot;</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">NavItem</span> <span class="nx">eventKey</span><span class="o">=</span><span class="p">{</span><span class="mi">3</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Log</span> <span class="nx">Out</span><span class="o">&lt;</span><span class="err">/NavItem&gt;</span>
+          <span class="o">&lt;</span><span class="err">/LinkContainer&gt;</span>
+        <span class="p">}</span>
+      <span class="o">&lt;</span><span class="err">/Nav&gt;</span>
+    <span class="o">&lt;</span><span class="err">/Navbar.Collapse&gt;</span>
+  <span class="o">&lt;</span><span class="err">/Navbar&gt;</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Make sure to pass <code>isAuthenticated</code> down on the <code>props</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">NavBar</span>
+  <span class="nx">title</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span>
+  <span class="nx">isAuthenticated</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">}</span>
+<span class="err">/&gt;</span>
+</code></pre></div>
+<p>This merely hides the links. An unauthenticated user could still access the route via entering the URL into the URL bar. To restrict access, update the <code>render()</code> in <em>UserStatus.jsx</em>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">You</span> <span class="nx">must</span> <span class="nx">be</span> <span class="nx">logged</span> <span class="k">in</span> <span class="nx">to</span> <span class="nx">view</span> <span class="k">this</span><span class="p">.</span> <span class="nx">Click</span> <span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="o">&gt;</span><span class="nx">here</span><span class="o">&lt;</span><span class="err">/Link&gt; to log back in.&lt;/p&gt;</span>
+  <span class="p">};</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">User</span> <span class="nx">ID</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.id}&lt;/li&gt;</span>
+        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Email</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.email}&lt;/li&gt;</span>
+        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Username</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.username}&lt;/li&gt;</span>
+      <span class="o">&lt;</span><span class="err">/ul&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">)</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Add the import:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Link</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>Then update the route in the <code>App</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/status&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">UserStatus</span>
+    <span class="nx">isAuthenticated</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+</code></pre></div>
+<p>Open the JavaScript console, and then try this out. Did you notice that the AJAX request still fires when you were unauthenticated?</p>
+
+<div style="text-align:left;">
+  <img src="/assets/img/course/03_react_auth_status.png" style="max-width: 100%; border:0; box-shadow: none;" alt="react auth">
+</div>
+
+<p>To fix, add a conditional to the <code>componentDidMount()</code> in the <code>UserStatus</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">getUserStatus</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Commit your code.</p>
+
+
+          <div class="page-nav">
+            
+              <a class="prev btn left-align" href="https://testdriven.io/part-three-mocking-user-interaction">&laquo; Mocking User Interaction</a>
+            
+            
+              <a class="next btn right-align" href="https://testdriven.io/part-three-authorization">Authorization &raquo;</a>
+            
+          </div>
+
+          
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - React Authentication - part two&amp;url=https%3A%2F%2Ftestdriven.io/part-three-react-auth-two&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+        </div>
+
+        <div class="hide-on-med-and-up">
+
+          <h2>React Authentication - part two</h2>
+
+          <p>Moving right along, let&#39;s add some methods to handle a user signing up, logging in, and logging out...</p>
+
+<hr>
+
+<h3 id="user-status">User Status</h3>
+
+<p>For the <code>/status</code> link, we need to add a new component that displays the response from a call to <code>/auth/status</code> from the users service. <em>Remember</em>: You need to be authenticated to hit this end-point successfully. So, we will need to add the token to the header prior to sending the AJAX request.</p>
+
+<p>First, add a new component called <em>UserStatus.jsx</em>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">&#39;axios&#39;</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">UserStatus</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+      <span class="nx">username</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+    <span class="p">};</span>
+  <span class="p">};</span>
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">getUserStatus</span><span class="p">();</span>
+  <span class="p">};</span>
+  <span class="nx">getUserStatus</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">url</span><span class="o">:</span> <span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REACT_APP_USERS_SERVICE_URL</span><span class="si">}</span><span class="sb">/auth/status`</span><span class="p">,</span>
+      <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span>
+      <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="nx">Authorization</span><span class="o">:</span> <span class="sb">`Bearer </span><span class="si">${</span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">authToken</span><span class="si">}</span><span class="sb">`</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="nx">axios</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span> <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span> <span class="p">});</span>
+  <span class="p">};</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">test</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+      <span class="o">&lt;</span><span class="err">/div&gt;</span>
+    <span class="p">)</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">UserStatus</span><span class="p">;</span>
+</code></pre></div>
+<p>Here, we used a stateful, class-based component to give the component its own internal state. Notice how we also included the header with the AJAX request.</p>
+
+<p>Import the component into <em>App.jsx</em>, and then add a new route:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/status&#39;</span> <span class="nx">component</span><span class="o">=</span><span class="p">{</span><span class="nx">UserStatus</span><span class="p">}</span><span class="o">/&gt;</span>
+</code></pre></div>
+<p>Test this out first when you&#39;re not logged in. You should see a 401 error in the JavaScript console. Try again when you are logged in. You should see an object with the keys <code>active</code>, <code>email</code>, <code>id</code>, and <code>username</code>.</p>
+
+<p>To add the values to the component, update the <code>.then</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+    <span class="nx">email</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">email</span><span class="p">,</span>
+    <span class="nx">id</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">username</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>Also, update the <code>render()</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">User</span> <span class="nx">ID</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.id}&lt;/li&gt;</span>
+        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Email</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.email}&lt;/li&gt;</span>
+        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Username</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.username}&lt;/li&gt;</span>
+      <span class="o">&lt;</span><span class="err">/ul&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">)</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Test it out.</p>
+
+<h3 id="update-navbar">Update Navbar</h3>
+
+<p>Finally, let&#39;s make the following changes to the <code>Navbar</code>:</p>
+
+<ol>
+<li>When the user is logged in, the register and log in links should be hidden</li>
+<li>When the user is logged out, the log out and user status links should be hidden</li>
+</ol>
+
+<p>Update the <code>NavBar</code> component like so to show/hide based on the value of <code>isAuthenticated</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">const</span> <span class="nx">NavBar</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">Navbar</span> <span class="nx">inverse</span> <span class="nx">collapseOnSelect</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">Navbar</span><span class="p">.</span><span class="nx">Header</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Navbar</span><span class="p">.</span><span class="nx">Brand</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
+      <span class="o">&lt;</span><span class="err">/Navbar.Brand&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Navbar</span><span class="p">.</span><span class="nx">Toggle</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="err">/Navbar.Header&gt;</span>
+    <span class="o">&lt;</span><span class="nx">Navbar</span><span class="p">.</span><span class="nx">Collapse</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Nav</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">LinkContainer</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">NavItem</span> <span class="nx">eventKey</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Home</span><span class="o">&lt;</span><span class="err">/NavItem&gt;</span>
+        <span class="o">&lt;</span><span class="err">/LinkContainer&gt;</span>
+        <span class="o">&lt;</span><span class="nx">LinkContainer</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/about&quot;</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="nx">NavItem</span> <span class="nx">eventKey</span><span class="o">=</span><span class="p">{</span><span class="mi">2</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">About</span><span class="o">&lt;</span><span class="err">/NavItem&gt;</span>
+        <span class="o">&lt;</span><span class="err">/LinkContainer&gt;</span>
+        <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span> <span class="o">&amp;&amp;</span>
+          <span class="o">&lt;</span><span class="nx">LinkContainer</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/status&quot;</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">NavItem</span> <span class="nx">eventKey</span><span class="o">=</span><span class="p">{</span><span class="mi">3</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">User</span> <span class="nx">Status</span><span class="o">&lt;</span><span class="err">/NavItem&gt;</span>
+          <span class="o">&lt;</span><span class="err">/LinkContainer&gt;</span>
+        <span class="p">}</span>
+      <span class="o">&lt;</span><span class="err">/Nav&gt;</span>
+      <span class="o">&lt;</span><span class="nx">Nav</span> <span class="nx">pullRight</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="o">!</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span> <span class="o">&amp;&amp;</span>
+          <span class="o">&lt;</span><span class="nx">LinkContainer</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/register&quot;</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">NavItem</span> <span class="nx">eventKey</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Register</span><span class="o">&lt;</span><span class="err">/NavItem&gt;</span>
+          <span class="o">&lt;</span><span class="err">/LinkContainer&gt;</span>
+        <span class="p">}</span>
+        <span class="p">{</span><span class="o">!</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span> <span class="o">&amp;&amp;</span>
+          <span class="o">&lt;</span><span class="nx">LinkContainer</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">NavItem</span> <span class="nx">eventKey</span><span class="o">=</span><span class="p">{</span><span class="mi">2</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Log</span> <span class="nx">In</span><span class="o">&lt;</span><span class="err">/NavItem&gt;</span>
+          <span class="o">&lt;</span><span class="err">/LinkContainer&gt;</span>
+        <span class="p">}</span>
+        <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span> <span class="o">&amp;&amp;</span>
+          <span class="o">&lt;</span><span class="nx">LinkContainer</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/logout&quot;</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">NavItem</span> <span class="nx">eventKey</span><span class="o">=</span><span class="p">{</span><span class="mi">3</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Log</span> <span class="nx">Out</span><span class="o">&lt;</span><span class="err">/NavItem&gt;</span>
+          <span class="o">&lt;</span><span class="err">/LinkContainer&gt;</span>
+        <span class="p">}</span>
+      <span class="o">&lt;</span><span class="err">/Nav&gt;</span>
+    <span class="o">&lt;</span><span class="err">/Navbar.Collapse&gt;</span>
+  <span class="o">&lt;</span><span class="err">/Navbar&gt;</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Make sure to pass <code>isAuthenticated</code> down on the <code>props</code>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">NavBar</span>
+  <span class="nx">title</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span>
+  <span class="nx">isAuthenticated</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">}</span>
+<span class="err">/&gt;</span>
+</code></pre></div>
+<p>This merely hides the links. An unauthenticated user could still access the route via entering the URL into the URL bar. To restrict access, update the <code>render()</code> in <em>UserStatus.jsx</em>:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">You</span> <span class="nx">must</span> <span class="nx">be</span> <span class="nx">logged</span> <span class="k">in</span> <span class="nx">to</span> <span class="nx">view</span> <span class="k">this</span><span class="p">.</span> <span class="nx">Click</span> <span class="o">&lt;</span><span class="nx">Link</span> <span class="nx">to</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="o">&gt;</span><span class="nx">here</span><span class="o">&lt;</span><span class="err">/Link&gt; to log back in.&lt;/p&gt;</span>
+  <span class="p">};</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">User</span> <span class="nx">ID</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.id}&lt;/li&gt;</span>
+        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Email</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.email}&lt;/li&gt;</span>
+        <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="nx">Username</span><span class="o">:&lt;</span><span class="err">/strong&gt; {this.state.username}&lt;/li&gt;</span>
+      <span class="o">&lt;</span><span class="err">/ul&gt;</span>
+    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+  <span class="p">)</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Add the import:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Link</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-router-dom&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>Then update the route in the <code>App</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="o">&lt;</span><span class="nx">Route</span> <span class="nx">exact</span> <span class="nx">path</span><span class="o">=</span><span class="s1">&#39;/status&#39;</span> <span class="nx">render</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">UserStatus</span>
+    <span class="nx">isAuthenticated</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">}</span>
+  <span class="o">/&gt;</span>
+<span class="p">)}</span> <span class="o">/&gt;</span>
+</code></pre></div>
+<p>Open the JavaScript console, and then try this out. Did you notice that the AJAX request still fires when you were unauthenticated?</p>
+
+<div style="text-align:left;">
+  <img src="/assets/img/course/03_react_auth_status.png" style="max-width: 100%; border:0; box-shadow: none;" alt="react auth">
+</div>
+
+<p>To fix, add a conditional to the <code>componentDidMount()</code> in the <code>UserStatus</code> component:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">getUserStatus</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Commit your code.</p>
+
+
+          
+  <br>
+  <a class="twitter-share-button" data-show-count="false" href="https://twitter.com/intent/tweet?text=Microservices with Docker, Flask, and React - React Authentication - part two&amp;url=https%3A%2F%2Ftestdriven.io/part-three-react-auth-two&amp;via=testdrivenio" rel="nofollow" target="_blank" title="Share on Twitter"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+          <div class="page-nav">
+            
+              <a class="prev btn left-align" href="https://testdriven.io/part-three-mocking-user-interaction">&laquo; Mocking User Interaction</a>
+            
+            
+              <a class="next btn right-align" href="https://testdriven.io/part-three-authorization">Authorization &raquo;</a>
+            
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+     <footer class="page-footer white">
+  <div class="container footer-container center-align">
+    <ul>
+      <li><small>Content by Michael Herman (michael@mherman.org)</small></li>
+      <li><small>&copy; Copyright 2017 <a href="http://testdriven.io">TestDriven.io</a></small></li>
+    </ul>
+  </div>
+</footer>
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100160465-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+  </body>
+</html>

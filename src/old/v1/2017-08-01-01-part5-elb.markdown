@@ -1,0 +1,144 @@
+---
+title: Elastic Load Balancing
+layout: post
+date: 2017-08-01 23:59:59
+permalink: part-five-elastic-load-balancing
+intro: false
+part: 5
+lesson: 5
+share: true
+---
+
+In the lesson, we'll add load balancing to ECS via Elastic Load Balancing to create a more reliable app with automatic scaling and failover...
+
+---
+
+The [Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/) provides two different types of load balancers - Application Load Balancers and Classic Load Balancers. We'll be using the former...
+
+The [Application Load Balancer](https://aws.amazon.com/elasticloadbalancing/applicationloadbalancer/) (ALB) integrates with ECS via [Service Load Balancing](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html), which:
+
+1. Dynamically maps container services to ports (as defined in the ECS Task Definition)
+1. Distributes traffic evenly across the entire ECS Service
+1. Runs status health checks against each service
+1. Allows for zero-downtime deploys and A/B testing
+
+Plus, when a new Task is added to the Service it will automatically be added to the ALB.
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Configure ALB</span>
+
+Navigate to [Amazon EC2](https://console.aws.amazon.com/ec2/), click "Load Balancers" on the sidebar, and then click the "Create Load Balancer" button. Select "Application Load Balancer".
+
+"Step 1: Configure Load Balancer":
+
+1. "Name": `flask-microservices-staging`
+1. "Availability Zones": `us-east-1a`, `us-east-1b`
+
+"Step 2: Configure Security Settings":
+
+1. Skip this step for now
+
+"Step 3: Configure Security Groups":
+
+1. Select an existing security group or create a new security group, making sure at least HTTP 80 and SSH 22 are open.
+
+"Step 4: Configure Routing":
+
+1. "Name": `sample`
+1. "Port": `5000`
+1. "Path": `/ping`
+
+"Step 5: Register Targets":
+
+1. We don't need to assign any instances manually since this will be managed by ECS.
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">ECS</span>
+
+So, a new [VPC](https://aws.amazon.com/vpc/) and [Security Group](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html) were created with the ALB. We need to associate them with a new Cluster. If we use the current Cluster, we will get an error (`The following targets are not in the target group VPC`) when we spin up new Tasks and ECS tries to register them with the ALB.
+
+##### Cluster
+
+Navigate back to ECS and delete the `flask-microservices-staging` cluster, and then create a new one:
+
+1. "Cluster name": `flask-microservices-staging`
+1. "EC2 instance type": `t2.micro`
+1. "Number of instances": `2`
+1. "Key pair": `ecs`
+
+Make sure to pick the "VPC" and "Security group" associated with ALB. Select one of the available "Subnets" as well - either `us-east-1a` or `us-east-1b`.
+
+##### Task Definition
+
+Create a new revision of `testdriven-staging` Task Definition, changing the host port of the `users-service` to 0. This port will be dynamically assigned when the Task is spun up.
+
+##### Service
+
+Create a new Service:
+
+1. "Task Definition": `test-driven-staging:LATEST_REVISION_NUMBER`
+1. "Service name": `flask-microservices-staging`
+1. "Number of tasks": `2`
+
+Click "Configure ELB".
+
+1. "ELB Name": `flask-microservices-staging`
+1. "Select a Container": `users-service:0:5000`
+
+Click "Add to ELB".
+
+1. "Listener port": `80:HTTP`
+1. "Target group name": `sample`
+
+Click "Configure Service Auto scaling", and then select "Configure Service Auto Scaling to adjust your service's desired count".
+
+1. "Minimum number of tasks": `1`
+1. "Desired number of tasks": `1`
+1. "Maximum number of tasks": `2`
+
+Click "Save" and then "Create Service".
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Sanity Check</span>
+
+Navigate to [Amazon EC2](https://console.aws.amazon.com/ec2/), and click "Target Groups". With the `sample` group selected, click the "Targets" tab. You should see a single registered instance. It should be healthy.
+
+Then, navigate back to the Load Balancer and grab the "DNS name" from the "Description" tab. Test this in your browser:
+
+1. [http://LOAD_BALANCER_DNS_NAME/ping](http://LOAD_BALANCER_DNS_NAME/ping)
+1. [http://LOAD_BALANCER_DNS_NAME/users](http://LOAD_BALANCER_DNS_NAME/users)
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Update Task Definition</span>
+
+Next, within *ecs_taskdefinition.json*, update the `hostPort` for the `users-service`:
+
+```json
+"hostPort": 0,
+```
+
+Assuming you are still using the `ecs` feature branch, commit and push your code to GitHub. Open a PR against the `staging` branch, and then merge the PR once the Travis build passes, to trigger a new build. Once done, you should see a new revision associated with the Task Definition and the Service should now be running a new Task based on that revision.
+
+Navigate to [Amazon EC2](https://console.aws.amazon.com/ec2/), and click "Target Groups". With the `sample` group selected, click the "Targets" tab. You should now see two registered instances. Both should be healthy. If you navigate back to ECS Service and click the "Events" tab, you should see an event for `draining connections`, indicating that one Task is being spun down. This should take about five minutes. Once done, you should see a new event - `stopped 1 running tasks`. Essentially, we scaled up temporarily to two Tasks, and then, since we set the desired number of Tasks to 1, the old Task was spun down.
+
+Test this in your browser:
+
+1. [http://LOAD_BALANCER_DNS_NAME/ping](http://LOAD_BALANCER_DNS_NAME/ping)
+1. [http://LOAD_BALANCER_DNS_NAME/users](http://LOAD_BALANCER_DNS_NAME/users)
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Test Load Balancing</span>
+
+What happens if an instance goes does?
+
+Within the "Tasks" tab on the Service, click the currently running Task and then on the Task page click the "Stop" button. On the "Events" tab you should see an event for a Task being drained as well as an event for a new Task starting. Perfect.
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Sanity Check (Take Two)</span>
+
+Finally, test out each of the endpoints:
+
+| Endpoint        | HTTP Method | Authenticated?  | Result            |
+|-----------------|-------------|-----------------|-------------------|
+| /auth/register  | POST        | No              | register user     |
+| /auth/login     | POST        | No              | log in user       |
+| /auth/logout    | GET         | Yes             | log out user      |
+| /auth/status    | GET         | Yes             | check user status |
+| /users          | GET         | No              | get all users     |
+| /users/:id      | GET         | No              | get single user   |
+| /users          | POST        | Yes (admin)     | add a user        |
+| /ping           | GET         | No              | sanity check      |

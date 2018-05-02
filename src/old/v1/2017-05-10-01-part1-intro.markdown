@@ -1,0 +1,118 @@
+---
+title: Introduction
+layout: post
+date: 2017-05-10 23:59:59
+permalink: part-one-intro
+intro: true
+part: 1
+lesson: 1
+share: true
+---
+
+In this first part, you'll learn how to quickly spin up a reproducible development environment with *Docker* to create a *RESTful API* powered by *Python*, *Postgres*, and the *Flask* web framework. After the app is up and running locally, you'll learn how to deploy it to an *Amazon EC2* instance.
+
+> We'll take a practical approach to test driven development (TDD), where we'll write tests first *only* when it makes sense.
+
+<div style="text-align:left;">
+  <img src="/assets/img/flask-tdd-logo.png" style="max-width: 100%; border:0; box-shadow: none;" alt="flask tdd logo">
+</div>
+
+This series uses the following tools and technologies:
+
+**Part 1**
+
+1. Python v3.6.1
+1. Flask v0.12.2
+1. Flask-Script v2.0.5
+1. Flask-SQLAlchemy v2.2
+1. Flask-Testing v0.6.2
+1. psycopg2 v2.7.1
+1. Gunicorn v19.7.1
+1. Nginx v1.13.0
+1. Docker v17.03.1-ce
+1. Docker Compose v1.11.2
+1. Docker Machine v0.10.0
+
+**Part 2**
+
+1. Coverage.py v4.4.1
+1. Node v7.10.0
+1. NPM v4.2.0
+1. Create React App v1.3.0
+1. Axios v0.16.2
+1. Flask-CORS v3.0.2
+
+**Part 3**
+
+1. Flask-Migrate v2.0.4
+1. Flask-Bcrypt v0.7.1
+1. PyJWT v1.5.0
+1. react-router-dom v4.1.1
+1. React Bootstrap v0.31.0
+1. React Router Bootstrap v0.24.2
+
+**Part 4**
+
+1. TestCafe v0.16.1
+1. node-randomstring v1.1.5
+1. Swagger UI v3.0.8
+
+**Part 5**
+
+No new dependencies.
+
+**Part 6**
+
+1. Flask v0.12.2
+1. Flask-Cors v3.0.3
+1. Flask-Script v2.0.6
+1. Flask-Testing v0.6.2
+1. Gunicorn v19.7.1
+1. Coverage.py v4.4.1
+1. Requests v2.18.4
+1. Flask-SQLAlchemy v2.2
+1. Flask-Migrate v2.0.4
+1. psycopg2 v2.7.1
+1. React-Ace v5.2.1
+
+Before beginning, you should have some familiarity with the following topics. Refer to the resources for more info:
+
+| Topic            | Resource |
+|------------------|----------|
+| Docker           | [Get started with Docker](https://docs.docker.com/engine/getstarted/) |
+| Docker Compose   | [Get started with Docker Compose](https://docs.docker.com/compose/gettingstarted/) |
+| Docker Machine | [Docker Machine Overview](https://docs.docker.com/machine/overview/) |
+| Flask | [Flaskr TDD](https://github.com/mjhea0/flaskr-tdd)
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Objectives</span>
+
+By the end of this part, you should be able to...
+
+1. Develop a RESTful API with Flask
+1. Practice test driven development
+1. Configure and run services locally with Docker, Docker Compose, and Docker Machine
+1. Utilize volumes to mount your code into a container
+1. Run unit and integration tests inside a Docker container
+1. Enable services running in different containers to talk to one another
+1. Work with Python and Flask running inside a Docker Container
+1. Install Flask, Ngnix, and Gunicorn on an Amazon EC2 instance
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">App</span>
+
+Check out the live app, running on EC2 - [http://testdriven-production-alb-484275327.us-east-1.elb.amazonaws.com](http://testdriven-production-alb-484275327.us-east-1.elb.amazonaws.com)
+
+You can also test out the following endpoints...
+
+| Endpoint    | HTTP Method | CRUD Method | Result          |
+|-------------|-------------|-------------|-----------------|
+| /users      | GET         | READ        | get all users   |
+| /users/:id  | GET         | READ        | get single user |
+| /users      | POST        | CREATE      | add a user      |
+
+> The `/users` POST endpoint is restricted as of Part 3.
+
+Essentially, the app is running in three containers - Flask, Postgres, and Nginx. At the end of this first part, you will have the above app completed and deployed. We'll add authentication and a number of other services in the subsequent parts.
+
+#### <span style="font-family:'Montserrat', 'sans-serif';">Code</span>
+
+Grab the code from the [flask-microservices-users](https://github.com/realpython/flask-microservices-users/releases/tag/part1) repo.
